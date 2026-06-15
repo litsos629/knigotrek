@@ -1,0 +1,107 @@
+{
+  "title": "Главная",
+  "stats": {
+    "totalSymbols": "Всего символов",
+    "entries": "Записей",
+    "streak": "Серия дней"
+  },
+  "projectSelect": {
+    "label": "Для какого проекта пишешь?",
+    "all": "Все проекты (общая статистика)",
+    "hint": "Статистика ниже показывает только этот проект"
+  },
+  "input": {
+    "title": "Сколько символов написал сегодня?",
+    "placeholder": "Например: 500",
+    "writtenLabel": "Написано",
+    "deletedLabel": "Удалено",
+    "deletedPlaceholder": "Например: 1500",
+    "revisionHint": "Режим редактуры: резать текст — это тоже работа, прогресс не падает.",
+    "revisionToday": "Сегодня: +{{written}} написано · −{{deleted}} удалено · чистыми {{net}}"
+  },
+  "passport": {
+    "title": "Паспорт писателя",
+    "subtitle": "Красивая карточка с вашими достижениями",
+    "create": "Создать",
+    "themeLabel": "Тема:",
+    "themeClean": "Светлая",
+    "themeDark": "Тёмная",
+    "generating": "Создание...",
+    "downloadPdf": "Скачать PDF",
+    "downloadImage": "Скачать картинку",
+    "authorName": "Писатель"
+  },
+  "chart": {
+    "title": "Последние 7 дней",
+    "legend": "Символов в день",
+    "max": "Макс: {{value}} символов"
+  },
+  "history": {
+    "title": "Все записи ({{count}})",
+    "symbols": "{{value}} символов"
+  },
+  "calendar": {
+    "title": "Календарь активности",
+    "subtitle": "Последние 8 недель — чем темнее квадрат, тем больше написал",
+    "noEntries": "{{date}}: Нет записей",
+    "withEntries": "{{date}}: {{count}} символов",
+    "less": "Меньше",
+    "more": "Больше",
+    "days": {
+      "mon": "Пн",
+      "tue": "Вт",
+      "wed": "Ср",
+      "thu": "Чт",
+      "fri": "Пт",
+      "sat": "Сб",
+      "sun": "Вс"
+    }
+  },
+  "records": {
+    "title": "🏆 Твои рекорды",
+    "bestDay": "Лучший день",
+    "bestDaySymbols": "{{value}} символов",
+    "longestStreak": "Самая длинная серия",
+    "dayOne": "{{count}} день",
+    "dayFew": "{{count}} дня",
+    "dayMany": "{{count}} дней",
+    "activeNow": "Активен сейчас! 🔥",
+    "recordPast": "Рекорд в прошлом",
+    "mostProductiveWeek": "Самая продуктивная неделя",
+    "mostProductiveWeekSymbols": "{{value}} символов",
+    "over7Days": "За 7 дней подряд"
+  },
+  "achievements": {
+    "title": "Достижения",
+    "items": {
+      "first": {
+        "title": "Первый шаг",
+        "description": "Сделал первую запись"
+      },
+      "1000": {
+        "title": "1000 символов",
+        "description": "Написал 1000+ символов"
+      },
+      "5000": {
+        "title": "5000 символов",
+        "description": "Написал 5000+"
+      },
+      "10000": {
+        "title": "10000 символов",
+        "description": "Написал 10000+"
+      },
+      "first_book": {
+        "title": "Первая книга",
+        "description": "Завершил первый проект"
+      },
+      "week": {
+        "title": "Неделя подряд",
+        "description": "Писал 7 дней подряд"
+      },
+      "month": {
+        "title": "Месяц силы",
+        "description": "Писал 30 дней подряд"
+      }
+    }
+  }
+}

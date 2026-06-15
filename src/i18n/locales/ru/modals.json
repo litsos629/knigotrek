@@ -1,0 +1,45 @@
+{
+  "welcome": {
+    "title": "Добро пожаловать в Книготрек!",
+    "subtitle": "Трекер прогресса для писателей",
+    "trackTitle": "Отслеживай прогресс",
+    "trackDesc": "Записывай символы за день и смотри свой рост",
+    "projectsTitle": "Управляй проектами",
+    "projectsDesc": "Создавай книги, ставь цели и видь адаптивный прогноз финиша",
+    "focusTitle": "Режим фокуса",
+    "focusDesc": "Таймер для продуктивного письма без отвлечений",
+    "start": "Начать!"
+  },
+  "digest": {
+    "title": "Итоги недели",
+    "symbols": "символов",
+    "sameLevel": "На уровне прошлой недели",
+    "diff": "{{percent}}% {{direction}} прошлой недели",
+    "directionMore": "больше",
+    "directionLess": "меньше",
+    "activeDays": "активных дней",
+    "streak": "серия дней",
+    "symbolsPerDay": "симв/день",
+    "bestDay": "Лучший день",
+    "quietDay": "Тихий день",
+    "dayValue": "{{date}} — {{symbols}} символов",
+    "projects": "Проекты",
+    "projectValue": "+{{symbols}} символов ({{progress}}%)",
+    "topTags": "Топ теги",
+    "tagSessions": "({{count}} сес.)",
+    "continue": "Продолжить",
+    "insightGreatWeek": "Отличная неделя! Ты написал на {{percent}}% больше прошлой.",
+    "insightActiveDays": "{{count}} активных дней — ты в отличном ритме!",
+    "insightStreak": "Streak {{count}} дней — невероятная серия!",
+    "insightBestDay": "{{date}} был твоим суперднём!"
+  },
+  "install": {
+    "title": "Установить Книготрек",
+    "subtitle": "Быстрый доступ с рабочего стола",
+    "action": "Установить"
+  },
+  "confirm": {
+    "defaultCancel": "Отмена",
+    "defaultConfirm": "Подтвердить"
+  }
+}

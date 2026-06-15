@@ -1,0 +1,121 @@
+{
+  "page": {
+    "title": "Проекты",
+    "subtitle": "Активных: {{active}} • Завершённых: {{completed}}",
+    "subtitlePaused": " • На паузе: {{paused}}",
+    "createProject": "Создать проект",
+    "editProject": "Редактировать проект",
+    "activeProjects": "Активные проекты",
+    "completedProjects": "Завершённые проекты ({{count}})",
+    "pausedProjects": "Приостановленные проекты ({{count}})",
+    "empty": "Пока нет проектов. Создай свой первый!"
+  },
+  "form": {
+    "titleLabel": "Название проекта *",
+    "titlePlaceholder": "Например: Моя первая книга",
+    "genreLabel": "Жанр",
+    "targetLabel": "Цель (символов) *",
+    "targetPlaceholder": "100000",
+    "deadlineLabel": "Дедлайн *",
+    "phaseLabel": "Фаза проекта",
+    "phaseDraft": "✍️ Черновик",
+    "phaseRevision": "✂️ Редактура",
+    "phaseHint": "В редактуре трекаются написанные и удалённые символы — резать текст это тоже работа, прогресс не падает.",
+    "descriptionLabel": "Описание (необязательно)",
+    "descriptionPlaceholder": "О чём книга, главные идеи...",
+    "volumesTitle": "Средние объёмы книг:",
+    "volumeStory": "Рассказ: 10-30 тыс. символов",
+    "volumeNovella": "Повесть: 30-100 тыс. символов",
+    "volumeNovel": "Роман: 100-300 тыс. символов",
+    "volumeEpic": "Эпопея: 300-500+ тыс. символов"
+  },
+  "validation": {
+    "titleRequired": "Введи название проекта",
+    "targetInvalid": "Введи корректную цель (больше 0)",
+    "deadlineRequired": "Выбери дедлайн"
+  },
+  "confirm": {
+    "completeTitle": "Завершить проект?",
+    "completeMessage": "Проект выполнен на {{percentage}}%. Всё равно завершить?",
+    "completeConfirm": "Завершить",
+    "deleteTitle": "Удалить проект?",
+    "deleteMessage": "{{title}}\n\nЗаписи символов останутся, но привязка к проекту будет потеряна. Это действие нельзя отменить.",
+    "unfreezeTitle": "Возобновить проект?",
+    "unfreezeMessage": "\"{{title}}\"",
+    "unfreezeConfirm": "Возобновить"
+  },
+  "card": {
+    "deadline": "Дедлайн: {{date}}",
+    "daysLeft": " ({{days}} дн.)",
+    "overdue": " (просрочен)",
+    "progress": "Прогресс",
+    "loading": "Загрузка...",
+    "todayDone": "✅ Цель сегодня выполнена!",
+    "todayNeededUrgent": "⚠️ Сегодня нужно: {{count}} симв.",
+    "todayNeeded": "🎯 Сегодня нужно: {{count}} симв.",
+    "todayWritten": "написано {{count}}",
+    "completeBook": "🎉 Завершить книгу"
+  },
+  "forecast": {
+    "nodataTitle": "Начни писать",
+    "nodataMessage": "Начни писать чтобы увидеть прогноз финиша",
+    "aheadTitle": "Отлично!",
+    "aheadMessage": "При темпе {{speed}} симв/день финиш за {{daysNeeded}} дней — на {{daysAhead}} дней раньше дедлайна! ✅ Можешь снизить до {{relaxedSpeed}}/день и всё равно успеешь.",
+    "behindTitle": "Небольшое отставание",
+    "behindMessage": "Темп {{speed}} симв/день, финиш через {{daysNeeded}} дней (+{{daysBehind}} дней от дедлайна)\n💡 Вариант 1: Подними до {{neededSpeed}}/день → успеешь точно в срок\n💡 Вариант 2: 7 дней по {{acceleratedSpeed}}/день → нагонишь на 70%\n💡 Вариант 3: Продли дедлайн на {{weeks}} недели → без стресса",
+    "ontrackTitle": "Идёшь по плану!",
+    "ontrackMessage": "Темп {{speed}} симв/день, прогноз финиша: {{date}}",
+    "replanButton": "📅 Перенести дедлайн на {{date}}",
+    "replanConfirmTitle": "Перенести дедлайн?",
+    "replanConfirmMessage": "Новый дедлайн: {{date}} — реалистично при текущем темпе. Пропустить пару дней — это нормально, главное не бросать.",
+    "replanConfirmYes": "Перенести",
+    "replanDone": "Дедлайн перенесён на {{date}} — план снова реалистичный 👍"
+  },
+  "chapters": {
+    "title": "Главы: {{project}}",
+    "progress": "{{done}} из {{total}} глав готово",
+    "summary": "Главы: {{done}}/{{total}}",
+    "openEmpty": "Разбить на главы",
+    "empty": "Пока нет глав. Добавьте первую — разбейте книгу на части и отслеживайте структуру.",
+    "addPlaceholder": "Название главы или сцены",
+    "add": "Добавить",
+    "deleteTitle": "Удалить главу?",
+    "deleteMessage": "Удалить «{{title}}»?",
+    "status": {
+      "planned": "План",
+      "draft": "Черновик",
+      "done": "Готово"
+    }
+  },
+  "completed": {
+    "loading": "Загрузка...",
+    "stats": "{{genre}} • {{total}} / {{target}} символов ({{percentage}}%)",
+    "completedDate": "Завершено: {{date}}",
+    "unfreezeCount": "Возобновлений: {{count}}/3",
+    "menu": "Меню",
+    "unfreeze": "Возобновить проект"
+  },
+  "completionModal": {
+    "congrats": "Поздравляем!",
+    "projectCompleted": "Проект завершен!",
+    "symbolsWritten": "✓ {{count}} символов написано",
+    "daysWorked": "✓ {{count}} дней работы",
+    "streak": "✓ {{count}} дней streak",
+    "movedToArchive": "Проект перемещен в архив",
+    "canStartNew": "Теперь вы можете начать новый!",
+    "reportError": "Ошибка при создании отчета",
+    "generating": "Создание...",
+    "createReport": "Создать итоговый отчет",
+    "createNewProject": "Создать новый проект"
+  },
+  "milestoneModal": {
+    "congrats": "Поздравляем!",
+    "halfwayDone": "Половина пути пройдена!",
+    "youWrote": "Вы написали {{total}} / {{target}} символов",
+    "reportError": "Ошибка при создании отчета",
+    "reportReady": "Мы создали для вас отчет о достижениях",
+    "generating": "Создание...",
+    "downloadPdf": "Скачать PDF отчет",
+    "later": "Позже"
+  }
+}

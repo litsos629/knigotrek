@@ -1,0 +1,45 @@
+{
+  "welcome": {
+    "title": "Welcome to Knigotrek!",
+    "subtitle": "Progress tracker for writers",
+    "trackTitle": "Track your progress",
+    "trackDesc": "Log your daily characters and watch yourself grow",
+    "projectsTitle": "Manage projects",
+    "projectsDesc": "Create books, set goals and see an adaptive finish forecast",
+    "focusTitle": "Focus mode",
+    "focusDesc": "A timer for productive, distraction-free writing",
+    "start": "Get started!"
+  },
+  "digest": {
+    "title": "Weekly summary",
+    "symbols": "characters",
+    "sameLevel": "On par with last week",
+    "diff": "{{percent}}% {{direction}} than last week",
+    "directionMore": "more",
+    "directionLess": "less",
+    "activeDays": "active days",
+    "streak": "day streak",
+    "symbolsPerDay": "chars/day",
+    "bestDay": "Best day",
+    "quietDay": "Quiet day",
+    "dayValue": "{{date}} — {{symbols}} characters",
+    "projects": "Projects",
+    "projectValue": "+{{symbols}} characters ({{progress}}%)",
+    "topTags": "Top tags",
+    "tagSessions": "({{count}} sess.)",
+    "continue": "Continue",
+    "insightGreatWeek": "Great week! You wrote {{percent}}% more than last week.",
+    "insightActiveDays": "{{count}} active days — you're in great rhythm!",
+    "insightStreak": "Streak of {{count}} days — an incredible run!",
+    "insightBestDay": "{{date}} was your super day!"
+  },
+  "install": {
+    "title": "Install Knigotrek",
+    "subtitle": "Quick access from your desktop",
+    "action": "Install"
+  },
+  "confirm": {
+    "defaultCancel": "Cancel",
+    "defaultConfirm": "Confirm"
+  }
+}

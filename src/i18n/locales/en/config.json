@@ -1,0 +1,39 @@
+{
+  "moods": {
+    "flow": "In the flow",
+    "music": "With music",
+    "coffee": "With coffee",
+    "walk": "After a walk",
+    "good": "Good",
+    "normal": "Normal",
+    "tired": "Tired",
+    "distracted": "Distracted",
+    "noIdeas": "No ideas"
+  },
+  "genres": {
+    "fantasy": "Fantasy",
+    "romance": "Romance",
+    "detective": "Mystery",
+    "thriller": "Thriller",
+    "scifi": "Science fiction",
+    "historical": "Historical fiction",
+    "nonfiction": "Non-fiction",
+    "fanfic": "Fanfic",
+    "story": "Short story",
+    "poetry": "Poetry",
+    "other": "Other"
+  },
+  "genreHints": {
+    "fantasy": "💡 Your genre (Fantasy): an average novel is ~250k characters",
+    "romance": "💡 Your genre (Romance): an average novel is ~150–200k characters",
+    "detective": "💡 Your genre (Mystery): an average novel is ~150–200k characters",
+    "thriller": "💡 Your genre (Thriller): an average novel is ~150–200k characters",
+    "scifi": "💡 Your genre (Science fiction): an average novel is ~200–250k characters",
+    "historical": "💡 Your genre (Historical fiction): an average novel is ~200–300k characters",
+    "nonfiction": "💡 Your genre (Non-fiction): an average book is ~100–200k characters",
+    "fanfic": "💡 Your genre (Fanfic): an average work is ~50–150k characters",
+    "story": "💡 Your genre (Short story): an average work is ~10–30k characters",
+    "poetry": "💡 Your genre (Poetry): an average collection is ~20–50k characters",
+    "other": "💡 Choose a length depending on the format"
+  }
+}

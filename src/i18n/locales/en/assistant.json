@@ -1,0 +1,203 @@
+{
+  "loading": {
+    "title": "Loading...",
+    "text": "Analyzing data..."
+  },
+  "welcome": {
+    "title": "Welcome!",
+    "text": "Start tracking your progress — enter today's character count!",
+    "intro": "Enter the number of characters you've written to start tracking your progress. The more data, the more accurate the advice and forecasts.",
+    "chipTrackProgress": "Track progress",
+    "chipGetAdvice": "Get advice",
+    "chipBuildHabit": "Build a habit"
+  },
+  "collapsed": {
+    "startWriting": "Start writing!",
+    "collectingData": "Collecting data...",
+    "smartAssistant": "Smart assistant",
+    "today": "Today: {{written}} / {{target}} characters"
+  },
+  "expand": "Expand",
+  "collapse": "Collapse",
+  "fewData": {
+    "title": "Collecting data",
+    "text": "{{count}} {{word}} — just a bit more, and personal insights and an accurate forecast will appear!",
+    "entryOne": "entry",
+    "entryFew": "entries",
+    "entryMany": "entries"
+  },
+  "dailyPlan": {
+    "title": "Today's plan",
+    "stat": "{{written}} / {{target}} characters",
+    "byDeadline": " (by deadline)",
+    "catchUp": " — catch up today!",
+    "done": "Today's plan is done!",
+    "remaining": "{{symbols}} characters left to the daily goal"
+  },
+  "goals": {
+    "title": "Goals",
+    "completed": "Goal completed!",
+    "firstStepTitle": "First step",
+    "firstStepDesc": "Write at least 100 characters today",
+    "dailyChallengeTitle": "Daily challenge",
+    "dailyChallengeDesc": "Write {{value}} characters today",
+    "startStreakTitle": "Start a streak!",
+    "startStreakDesc": "Write something today to begin a streak",
+    "streakWeekTitle_one": "{{count}} more day!",
+    "streakWeekTitle_other": "{{count}} more days!",
+    "streakWeekDesc": "Keep your streak going to 7 days in a row",
+    "habitTitle": "Build the habit",
+    "habitDesc": "Streak of {{streak}} days. Goal: 21 days!",
+    "monthTitle": "Monthly marathon",
+    "monthDesc": "Streak of {{streak}} days. {{left}} to go until 30!",
+    "exploreTitle": "Explore!",
+    "exploreDesc": "Try writing a session {{slot}}",
+    "beatRecordTitle": "Beat your record!",
+    "beatRecordDesc": "{{left}} left to beat your record of {{record}} characters",
+    "slotMorning": "in the morning (6–12)",
+    "slotAfternoon": "in the afternoon (12–18)",
+    "slotEvening": "in the evening (18–22)"
+  },
+  "forecast": {
+    "heading": "{{project}}: {{title}}",
+    "stat": "{{written}} / {{target}} characters ({{progress}}%)",
+    "startWritingTitle": "Start writing",
+    "startWritingMessage": "Start writing to see a finish forecast",
+    "collectingTitle": "Collecting data",
+    "collectingMessage": "Written {{written}} of {{target}} characters. Keep writing for an accurate forecast!",
+    "aheadTitle": "Ahead of schedule!",
+    "aheadMessage": "Pace {{speed}} chars/day — finish in {{days}} days, {{ahead}} days before the deadline. You can ease off to {{relaxed}}/day.",
+    "behindTitle": "Slightly behind",
+    "behindMessage": "Pace {{speed}} chars/day, finish in {{days}} days (+{{ahead}} past the deadline). Raise it to {{needed}}/day to make it.",
+    "ontrackTitle": "On track!",
+    "ontrackMessage": "Pace {{speed}} chars/day, projected finish in {{days}} days."
+  },
+  "tags": {
+    "insights": "Insights",
+    "details": "More",
+    "hideDetails": "Hide details",
+    "previewTag": "{{tag}}: {{sessions}} sessions, {{speed}} c/m",
+    "symbols7weeks": "Characters over 7 weeks:",
+    "allTags": "All tags:",
+    "bestCombinations": "Best combinations:",
+    "sessionsShort": "sess.",
+    "speedUnit": "c/m",
+    "combinationStat": "{{symbols}} chars, {{speed}} c/m ({{sessions}} sess.)",
+    "tagFaster": "{{tag}} boosts speed by {{percent}}%",
+    "tagSlower": "With {{tag}} you write {{percent}}% slower",
+    "tagNeutral": "{{tag}} — no noticeable effect"
+  },
+  "week": {
+    "better": "This week is {{percent}}% better than last!",
+    "worse": "This week is {{percent}}% quieter than last",
+    "same": "This week is on par with last"
+  },
+  "facts": {
+    "bestDay": "{{day}} — your most productive day",
+    "bestTime": "Best time to write — {{time}}"
+  },
+  "recentTrend": {
+    "more": "Over the last 3 days you're writing {{percent}}% more than average",
+    "less": "Over the last 3 days you're writing {{percent}}% less than average"
+  },
+  "recommendations": {
+    "title": "Recommendations",
+    "details": "More",
+    "hideDetails": "Hide details",
+    "previewTimeSlot": "{{label}}: {{speed}} c/m ({{sessions}} sess.)",
+    "byTimeOfDay": "By time of day:",
+    "byDuration": "By session length:",
+    "sessionsShort": "sess.",
+    "symbolsShort": "chars",
+    "speedUnit": "c/m",
+    "durationWithRange": "{{label}} ({{range}})",
+    "bestTime": "You write most productively: {{label}} ({{speed}} chars/min)",
+    "bestDuration": "Your most productive sessions: {{range}} ({{speed}} chars/min)",
+    "daily": "Today is {{day}} — try a {{range}} session {{time}}{{tag}}",
+    "dailyTag": " with {{tag}}"
+  },
+  "breakPattern": {
+    "boost": "You usually write {{days}} days in a row, then take a break. After breaks you come back {{percent}}% stronger!",
+    "slower": "You usually write {{days}} days in a row. After breaks you ramp up — the first days are {{percent}}% quieter.",
+    "normal": "You usually write {{days}} days in a row, then take a pause — that's a healthy rhythm!"
+  },
+  "stats": {
+    "avgPace": "Average pace",
+    "avgPaceValue": "{{value}} chars/day",
+    "perWeek": "This week",
+    "perWeekValue": "{{value}} characters"
+  },
+  "timeLabels": {
+    "morning": "in the morning (6-12)",
+    "afternoon": "in the afternoon (12-18)",
+    "evening": "in the evening (18-22)",
+    "night": "at night (22-6)"
+  },
+  "timeSlotLabels": {
+    "morning": "Morning (6-12)",
+    "afternoon": "Afternoon (12-18)",
+    "evening": "Evening (18-22)",
+    "night": "Night (22-6)"
+  },
+  "durationLabels": {
+    "short": "Short",
+    "medium": "Medium",
+    "long": "Long",
+    "marathon": "Marathon"
+  },
+  "durationRanges": {
+    "short": "5-15 min",
+    "medium": "15-30 min",
+    "long": "30-60 min",
+    "marathon": "60+ min"
+  },
+  "weekdays": {
+    "sunday": "Sunday",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday"
+  },
+  "advice": {
+    "deadlineOverdueTitle": "Deadline overdue!",
+    "deadlineOverdueText": "The deadline for «{{project}}» is overdue by {{days}} days. It's high time to finish or reconsider the timeline.",
+    "deadlineCriticalTitle": "Urgent: deadline is close!",
+    "deadlineCriticalText": "{{days}} days left until the \"{{project}}\" deadline. Progress: {{progress}}%. You need to write {{needed}} characters/day.",
+    "deadlineWarningTitle": "Deadline approaching",
+    "deadlineWarningText": "{{days}} days left until the \"{{project}}\" deadline. Recommended pace: {{needed}} characters/day.",
+    "speedSlowTitle": "Slow pace",
+    "speedSlowText": "Your speed is {{speed}} chars/min. Try writing faster without editing right away — draft first, fix later.",
+    "speedFastTitle": "Very fast pace",
+    "speedFastText": "Your speed is {{speed}} chars/min — excellent! But don't forget about text quality.",
+    "streakRiskTitle": "Don't break your streak!",
+    "streakRiskText": "Your {{streak}}-day streak is at risk! Write at least 100 characters today to keep the series going.",
+    "bestTimeTitle": "Best time to write",
+    "bestTimeText": "You write best {{time}}. Try scheduling sessions for this time!",
+    "bestDayTitle": "Most productive day",
+    "bestDayText": "{{day}} is your best day of the week for writing.",
+    "startStreakTitle": "Start a streak!",
+    "startStreakText": "Write every day to grow your series. Even 100 characters is progress!",
+    "streakGoodStartTitle": "Great start!",
+    "streakGoodStartText": "{{streak}} {{word}} in a row! Keep going — momentum matters for writers.",
+    "streakOnFireTitle": "You're on fire!",
+    "streakOnFireText": "{{streak}} days in a row — that's strength! A habit forms in 21 days. {{remaining}} to go!",
+    "streakIncredibleTitle": "Incredible!",
+    "streakIncredibleText": "A {{streak}}-day streak — you're a true pro! Keep it up!",
+    "dayWordOne": "day",
+    "dayWordFew": "days",
+    "paceSlowTitle": "Slow but steady",
+    "paceSlowText": "Average pace: {{avg}} characters/day. Every word brings you closer to the goal!",
+    "paceGoodTitle": "Good pace!",
+    "paceGoodText": "{{avg}} characters/day — a great rhythm for long-term work.",
+    "paceFastTitle": "Speed of light!",
+    "paceFastText": "{{avg}} characters/day — an impressive pace! Watch out for burnout.",
+    "weekEmptyTitle": "Time to come back",
+    "weekEmptyText": "No entries in the last 7 days. Start small — 200-300 characters today!",
+    "weekQuietTitle": "A quiet week",
+    "weekQuietText": "Not much this week — but the main thing is to start! Try writing 15 minutes every day.",
+    "weekProductiveTitle": "A productive week!",
+    "weekProductiveText": "{{symbols}} characters in 7 days! Great work!"
+  }
+}

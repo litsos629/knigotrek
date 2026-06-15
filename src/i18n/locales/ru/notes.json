@@ -1,0 +1,16 @@
+{
+  "title": "Заметки",
+  "create": "Создать заметку",
+  "defaultTitle": "Новая заметка",
+  "allNotes": "Все заметки ({{count}})",
+  "empty": "Пока нет заметок.",
+  "emptyHint": "Создай первую!",
+  "selectHint": "Выбери заметку из списка или создай новую",
+  "titlePlaceholder": "Название заметки",
+  "contentPlaceholder": "Начни писать...",
+  "noteEmpty": "Заметка пуста",
+  "deleteConfirm": {
+    "title": "Удалить заметку?",
+    "message": "{{title}}\n\nЭто действие нельзя отменить."
+  }
+}

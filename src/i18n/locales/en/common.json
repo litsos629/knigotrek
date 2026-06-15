@@ -1,0 +1,56 @@
+{
+  "appName": "Knigotrek",
+  "openMenu": "Open menu",
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "notes": "Notes",
+    "focus": "Focus",
+    "reports": "Reports",
+    "sync": "Sync",
+    "settings": "Settings"
+  },
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create"
+  },
+  "notifications": {
+    "reminderTitle": "Knigotrek — Time to write!",
+    "reminderBody": "Even 200 characters is progress. Open the app and get started! 📝"
+  },
+  "validation": {
+    "projectTitleEmpty": "Project title cannot be empty",
+    "projectTitleTooLong": "Project title is too long (200 characters max)",
+    "projectTargetInvalid": "The goal must be a number >= 0",
+    "projectDescTooLong": "Description is too long (10000 characters max)",
+    "noteTitleEmpty": "Note title cannot be empty",
+    "noteTitleTooLong": "Title is too long (200 characters max)",
+    "noteContentTooLong": "Content is too long (10000 characters max)"
+  },
+  "errors": {
+    "supabaseNotInit": "Supabase is not initialized. Check VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY.",
+    "notAuthorized": "Not authorized. Sign in to the cloud before syncing."
+  },
+  "undo": {
+    "action": "Undo",
+    "noteDeleted": "Note deleted",
+    "projectDeleted": "Project deleted",
+    "chapterDeleted": "Chapter deleted",
+    "restored": "Restored"
+  },
+  "help": {
+    "progress": "Log how many characters you wrote today. Even a little counts — it powers your charts, streak and forecast.",
+    "projects": "Your books and manuscripts: character goal, deadline, status. Open a project to manage chapters and see a finish forecast.",
+    "focus": "A writing timer: set the time, write without distractions, then log the session result.",
+    "notes": "Quick notes and ideas — plot, names, hooks. Stored locally, like everything else.",
+    "sync": "Move data between devices: export/import a file, or optional cloud sync via your own Supabase.",
+    "reports": "Reports and images for the day, week, month, year and per project — for your archive or to share.",
+    "achievements": "Badges for milestones: first characters, day streaks, a finished book. They unlock automatically as you progress.",
+    "records": "Your all-time bests by the numbers — most characters in a day, the most days written without a gap, and peak pace.",
+    "calendar": "An activity map by day, like GitHub: the busier the day, the brighter the cell."
+  }
+}

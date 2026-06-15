@@ -1,0 +1,121 @@
+{
+  "page": {
+    "title": "Projects",
+    "subtitle": "Active: {{active}} • Completed: {{completed}}",
+    "subtitlePaused": " • Paused: {{paused}}",
+    "createProject": "Create project",
+    "editProject": "Edit project",
+    "activeProjects": "Active projects",
+    "completedProjects": "Completed projects ({{count}})",
+    "pausedProjects": "Paused projects ({{count}})",
+    "empty": "No projects yet. Create your first one!"
+  },
+  "form": {
+    "titleLabel": "Project title *",
+    "titlePlaceholder": "For example: My first book",
+    "genreLabel": "Genre",
+    "targetLabel": "Goal (characters) *",
+    "targetPlaceholder": "100000",
+    "deadlineLabel": "Deadline *",
+    "phaseLabel": "Project phase",
+    "phaseDraft": "✍️ Draft",
+    "phaseRevision": "✂️ Revision",
+    "phaseHint": "In revision, both written and deleted characters are tracked — cutting text is work too, so progress doesn't drop.",
+    "descriptionLabel": "Description (optional)",
+    "descriptionPlaceholder": "What the book is about, key ideas...",
+    "volumesTitle": "Average book lengths:",
+    "volumeStory": "Short story: 10-30k characters",
+    "volumeNovella": "Novella: 30-100k characters",
+    "volumeNovel": "Novel: 100-300k characters",
+    "volumeEpic": "Epic: 300-500k+ characters"
+  },
+  "validation": {
+    "titleRequired": "Enter a project title",
+    "targetInvalid": "Enter a valid goal (greater than 0)",
+    "deadlineRequired": "Pick a deadline"
+  },
+  "confirm": {
+    "completeTitle": "Complete project?",
+    "completeMessage": "Project is {{percentage}}% done. Complete anyway?",
+    "completeConfirm": "Complete",
+    "deleteTitle": "Delete project?",
+    "deleteMessage": "{{title}}\n\nCharacter entries will remain, but the link to the project will be lost. This action cannot be undone.",
+    "unfreezeTitle": "Resume project?",
+    "unfreezeMessage": "\"{{title}}\"",
+    "unfreezeConfirm": "Resume"
+  },
+  "card": {
+    "deadline": "Deadline: {{date}}",
+    "daysLeft": " ({{days}} d.)",
+    "overdue": " (overdue)",
+    "progress": "Progress",
+    "loading": "Loading...",
+    "todayDone": "✅ Today's goal is done!",
+    "todayNeededUrgent": "⚠️ Needed today: {{count}} chars",
+    "todayNeeded": "🎯 Needed today: {{count}} chars",
+    "todayWritten": "written {{count}}",
+    "completeBook": "🎉 Finish the book"
+  },
+  "forecast": {
+    "nodataTitle": "Start writing",
+    "nodataMessage": "Start writing to see the finish forecast",
+    "aheadTitle": "Excellent!",
+    "aheadMessage": "At {{speed}} chars/day you'll finish in {{daysNeeded}} days — {{daysAhead}} days before the deadline! ✅ You can slow down to {{relaxedSpeed}}/day and still make it.",
+    "behindTitle": "Slightly behind",
+    "behindMessage": "Pace {{speed}} chars/day, finish in {{daysNeeded}} days (+{{daysBehind}} days past the deadline)\n💡 Option 1: Raise to {{neededSpeed}}/day → finish right on time\n💡 Option 2: 7 days at {{acceleratedSpeed}}/day → catch up by 70%\n💡 Option 3: Extend the deadline by {{weeks}} weeks → no stress",
+    "ontrackTitle": "On track!",
+    "ontrackMessage": "Pace {{speed}} chars/day, finish forecast: {{date}}",
+    "replanButton": "📅 Move deadline to {{date}}",
+    "replanConfirmTitle": "Move the deadline?",
+    "replanConfirmMessage": "New deadline: {{date}} — realistic at your current pace. Missing a couple of days is fine; what matters is not to quit.",
+    "replanConfirmYes": "Move",
+    "replanDone": "Deadline moved to {{date}} — the plan is realistic again 👍"
+  },
+  "chapters": {
+    "title": "Chapters: {{project}}",
+    "progress": "{{done}} of {{total}} chapters done",
+    "summary": "Chapters: {{done}}/{{total}}",
+    "openEmpty": "Break into chapters",
+    "empty": "No chapters yet. Add the first one to break the book into parts and track structure.",
+    "addPlaceholder": "Chapter or scene title",
+    "add": "Add",
+    "deleteTitle": "Delete chapter?",
+    "deleteMessage": "Delete “{{title}}”?",
+    "status": {
+      "planned": "Planned",
+      "draft": "Draft",
+      "done": "Done"
+    }
+  },
+  "completed": {
+    "loading": "Loading...",
+    "stats": "{{genre}} • {{total}} / {{target}} characters ({{percentage}}%)",
+    "completedDate": "Completed: {{date}}",
+    "unfreezeCount": "Resumes: {{count}}/3",
+    "menu": "Menu",
+    "unfreeze": "Resume project"
+  },
+  "completionModal": {
+    "congrats": "Congratulations!",
+    "projectCompleted": "Project completed!",
+    "symbolsWritten": "✓ {{count}} characters written",
+    "daysWorked": "✓ {{count}} days of work",
+    "streak": "✓ {{count}} day streak",
+    "movedToArchive": "Project moved to the archive",
+    "canStartNew": "Now you can start a new one!",
+    "reportError": "Error generating the report",
+    "generating": "Generating...",
+    "createReport": "Create final report",
+    "createNewProject": "Create a new project"
+  },
+  "milestoneModal": {
+    "congrats": "Congratulations!",
+    "halfwayDone": "Halfway there!",
+    "youWrote": "You've written {{total}} / {{target}} characters",
+    "reportError": "Error generating the report",
+    "reportReady": "We've prepared an achievements report for you",
+    "generating": "Generating...",
+    "downloadPdf": "Download PDF report",
+    "later": "Later"
+  }
+}

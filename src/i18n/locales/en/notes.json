@@ -1,0 +1,16 @@
+{
+  "title": "Notes",
+  "create": "Create note",
+  "defaultTitle": "New note",
+  "allNotes": "All notes ({{count}})",
+  "empty": "No notes yet.",
+  "emptyHint": "Create your first one!",
+  "selectHint": "Select a note from the list or create a new one",
+  "titlePlaceholder": "Note title",
+  "contentPlaceholder": "Start writing...",
+  "noteEmpty": "Note is empty",
+  "deleteConfirm": {
+    "title": "Delete note?",
+    "message": "{{title}}\n\nThis action cannot be undone."
+  }
+}

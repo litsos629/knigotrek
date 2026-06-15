@@ -1,0 +1,204 @@
+{
+  "loading": {
+    "title": "Загрузка...",
+    "text": "Анализирую данные..."
+  },
+  "welcome": {
+    "title": "Добро пожаловать!",
+    "text": "Начни отслеживать свой прогресс — введи символы за сегодня!",
+    "intro": "Введи количество написанных символов, чтобы начать отслеживать прогресс. Чем больше данных, тем точнее будут советы и прогнозы.",
+    "chipTrackProgress": "Отслеживай прогресс",
+    "chipGetAdvice": "Получай советы",
+    "chipBuildHabit": "Строй привычку"
+  },
+  "collapsed": {
+    "startWriting": "Начни писать!",
+    "collectingData": "Набираем данные...",
+    "smartAssistant": "Умный ассистент",
+    "today": "Сегодня: {{written}} / {{target}} символов"
+  },
+  "expand": "Развернуть",
+  "collapse": "Свернуть",
+  "fewData": {
+    "title": "Набираем данные",
+    "text": "{{count}} {{word}} — ещё немного, и появятся персональные инсайты и точный прогноз!",
+    "entryOne": "запись",
+    "entryFew": "записи",
+    "entryMany": "записей"
+  },
+  "dailyPlan": {
+    "title": "План на сегодня",
+    "stat": "{{written}} / {{target}} символов",
+    "byDeadline": " (по дедлайну)",
+    "catchUp": " — наверстай сегодня!",
+    "done": "План на сегодня выполнен!",
+    "remaining": "Осталось {{symbols}} символов до дневной цели"
+  },
+  "goals": {
+    "title": "Цели",
+    "completed": "Цель выполнена!",
+    "firstStepTitle": "Первый шаг",
+    "firstStepDesc": "Напиши хотя бы 100 символов сегодня",
+    "dailyChallengeTitle": "Дневной вызов",
+    "dailyChallengeDesc": "Напиши {{value}} символов сегодня",
+    "startStreakTitle": "Начни streak!",
+    "startStreakDesc": "Напиши что-нибудь сегодня, чтобы начать серию",
+    "streakWeekTitle_one": "Ещё {{count}} день!",
+    "streakWeekTitle_few": "Ещё {{count}} дня!",
+    "streakWeekTitle_many": "Ещё {{count}} дней!",
+    "streakWeekDesc": "Продолжай streak до 7 дней подряд",
+    "habitTitle": "Формируй привычку",
+    "habitDesc": "Streak {{streak}} дней. Цель: 21 день!",
+    "monthTitle": "Месячный марафон",
+    "monthDesc": "Streak {{streak}} дней. До 30 осталось {{left}}!",
+    "exploreTitle": "Исследуй!",
+    "exploreDesc": "Попробуй написать сессию {{slot}}",
+    "beatRecordTitle": "Побей рекорд!",
+    "beatRecordDesc": "До рекорда {{record}} символов осталось {{left}}",
+    "slotMorning": "утром (6-12)",
+    "slotAfternoon": "днём (12-18)",
+    "slotEvening": "вечером (18-22)"
+  },
+  "forecast": {
+    "heading": "{{project}}: {{title}}",
+    "stat": "{{written}} / {{target}} символов ({{progress}}%)",
+    "startWritingTitle": "Начни писать",
+    "startWritingMessage": "Начни писать чтобы увидеть прогноз финиша",
+    "collectingTitle": "Собираем данные",
+    "collectingMessage": "Написано {{written}} из {{target}} символов. Продолжай писать для точного прогноза!",
+    "aheadTitle": "Опережаешь график!",
+    "aheadMessage": "Темп {{speed}} симв/день — финиш за {{days}} дней, на {{ahead}} дней раньше дедлайна. Можешь снизить до {{relaxed}}/день.",
+    "behindTitle": "Небольшое отставание",
+    "behindMessage": "Темп {{speed}} симв/день, финиш через {{days}} дней (+{{ahead}} от дедлайна). Подними до {{needed}}/день чтобы успеть.",
+    "ontrackTitle": "Идёшь по плану!",
+    "ontrackMessage": "Темп {{speed}} симв/день, прогноз финиша через {{days}} дней."
+  },
+  "tags": {
+    "insights": "Инсайты",
+    "details": "Подробнее",
+    "hideDetails": "Скрыть подробности",
+    "previewTag": "{{tag}}: {{sessions}} сессий, {{speed}} с/м",
+    "symbols7weeks": "Символов за 7 недель:",
+    "allTags": "Все теги:",
+    "bestCombinations": "Лучшие комбинации:",
+    "sessionsShort": "сес.",
+    "speedUnit": "с/м",
+    "combinationStat": "{{symbols}} симв, {{speed}} с/м ({{sessions}} сес.)",
+    "tagFaster": "{{tag}} повышает скорость на {{percent}}%",
+    "tagSlower": "С {{tag}} ты пишешь на {{percent}}% медленнее",
+    "tagNeutral": "{{tag}} — без заметного влияния"
+  },
+  "week": {
+    "better": "Эта неделя на {{percent}}% лучше прошлой!",
+    "worse": "Эта неделя на {{percent}}% тише прошлой",
+    "same": "Эта неделя на уровне прошлой"
+  },
+  "facts": {
+    "bestDay": "{{day}} — твой самый продуктивный день",
+    "bestTime": "Лучшее время для письма — {{time}}"
+  },
+  "recentTrend": {
+    "more": "Последние 3 дня ты пишешь на {{percent}}% больше среднего",
+    "less": "Последние 3 дня ты пишешь на {{percent}}% меньше среднего"
+  },
+  "recommendations": {
+    "title": "Рекомендации",
+    "details": "Подробнее",
+    "hideDetails": "Скрыть подробности",
+    "previewTimeSlot": "{{label}}: {{speed}} с/м ({{sessions}} сес.)",
+    "byTimeOfDay": "По времени суток:",
+    "byDuration": "По длительности сессий:",
+    "sessionsShort": "сес.",
+    "symbolsShort": "симв",
+    "speedUnit": "с/м",
+    "durationWithRange": "{{label}} ({{range}})",
+    "bestTime": "Ты пишешь продуктивнее всего: {{label}} ({{speed}} симв/мин)",
+    "bestDuration": "Самые продуктивные сессии: {{range}} ({{speed}} симв/мин)",
+    "daily": "Сегодня {{day}} — попробуй {{range}} сессию {{time}}{{tag}}",
+    "dailyTag": " с {{tag}}"
+  },
+  "breakPattern": {
+    "boost": "Обычно ты пишешь {{days}} дней подряд, потом делаешь перерыв. После перерывов возвращаешься на {{percent}}% сильнее!",
+    "slower": "Обычно ты пишешь {{days}} дней подряд. После перерывов раскачиваешься — первые дни на {{percent}}% тише.",
+    "normal": "Обычно ты пишешь {{days}} дней подряд, потом делаешь паузу — это нормальный ритм!"
+  },
+  "stats": {
+    "avgPace": "Средний темп",
+    "avgPaceValue": "{{value}} симв/день",
+    "perWeek": "За неделю",
+    "perWeekValue": "{{value}} символов"
+  },
+  "timeLabels": {
+    "morning": "утром (6-12)",
+    "afternoon": "днём (12-18)",
+    "evening": "вечером (18-22)",
+    "night": "ночью (22-6)"
+  },
+  "timeSlotLabels": {
+    "morning": "Утро (6-12)",
+    "afternoon": "День (12-18)",
+    "evening": "Вечер (18-22)",
+    "night": "Ночь (22-6)"
+  },
+  "durationLabels": {
+    "short": "Короткие",
+    "medium": "Средние",
+    "long": "Длинные",
+    "marathon": "Марафон"
+  },
+  "durationRanges": {
+    "short": "5-15 мин",
+    "medium": "15-30 мин",
+    "long": "30-60 мин",
+    "marathon": "60+ мин"
+  },
+  "weekdays": {
+    "sunday": "воскресенье",
+    "monday": "понедельник",
+    "tuesday": "вторник",
+    "wednesday": "среда",
+    "thursday": "четверг",
+    "friday": "пятница",
+    "saturday": "суббота"
+  },
+  "advice": {
+    "deadlineOverdueTitle": "Дедлайн просрочен!",
+    "deadlineOverdueText": "Дедлайн по проекту «{{project}}» просрочен на {{days}} дней. Самое время завершить или пересмотреть сроки.",
+    "deadlineCriticalTitle": "Срочно: дедлайн близко!",
+    "deadlineCriticalText": "До дедлайна \"{{project}}\" осталось {{days}} дней. Прогресс: {{progress}}%. Нужно писать {{needed}} символов/день.",
+    "deadlineWarningTitle": "Дедлайн приближается",
+    "deadlineWarningText": "До дедлайна \"{{project}}\" осталось {{days}} дней. Рекомендуемый темп: {{needed}} символов/день.",
+    "speedSlowTitle": "Медленный темп",
+    "speedSlowText": "Твоя скорость {{speed}} симв/мин. Попробуй писать быстрее, не редактируя сразу — сначала черновик, потом правки.",
+    "speedFastTitle": "Очень быстрый темп",
+    "speedFastText": "Твоя скорость {{speed}} симв/мин — отлично! Но не забывай о качестве текста.",
+    "streakRiskTitle": "Не сломай streak!",
+    "streakRiskText": "Твой streak {{streak}} дней под угрозой! Напиши хотя бы 100 символов сегодня, чтобы сохранить серию.",
+    "bestTimeTitle": "Лучшее время для письма",
+    "bestTimeText": "Ты пишешь лучше всего {{time}}. Попробуй планировать сессии на это время!",
+    "bestDayTitle": "Самый продуктивный день",
+    "bestDayText": "{{day}} — твой лучший день недели для письма.",
+    "startStreakTitle": "Начни streak!",
+    "startStreakText": "Пиши каждый день, чтобы увеличить свою серию. Даже 100 символов — это прогресс!",
+    "streakGoodStartTitle": "Отличное начало!",
+    "streakGoodStartText": "{{streak}} {{word}} подряд! Продолжай — momentum важен для писателей.",
+    "streakOnFireTitle": "Ты в ударе!",
+    "streakOnFireText": "{{streak}} дней подряд — это сила! Привычка формируется за 21 день. Ещё {{remaining}}!",
+    "streakIncredibleTitle": "Невероятно!",
+    "streakIncredibleText": "{{streak}} дней streak — ты настоящий профессионал! Так держать!",
+    "dayWordOne": "день",
+    "dayWordFew": "дня",
+    "paceSlowTitle": "Медленно, но верно",
+    "paceSlowText": "Средний темп: {{avg}} символов/день. Каждое слово приближает к цели!",
+    "paceGoodTitle": "Хороший темп!",
+    "paceGoodText": "{{avg}} символов/день — отличный ритм для долгосрочной работы.",
+    "paceFastTitle": "Скорость света!",
+    "paceFastText": "{{avg}} символов/день — впечатляющий темп! Следи за выгоранием.",
+    "weekEmptyTitle": "Время вернуться",
+    "weekEmptyText": "За последние 7 дней нет записей. Начни с малого — 200-300 символов сегодня!",
+    "weekQuietTitle": "Неделя тишины",
+    "weekQuietText": "За неделю немного — но главное начать! Попробуй писать по 15 минут каждый день.",
+    "weekProductiveTitle": "Продуктивная неделя!",
+    "weekProductiveText": "{{symbols}} символов за 7 дней! Отличная работа!"
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "title": "Home",
+  "stats": {
+    "totalSymbols": "Total characters",
+    "entries": "Entries",
+    "streak": "Streak"
+  },
+  "projectSelect": {
+    "label": "Which project are you writing for?",
+    "all": "All projects (overall stats)",
+    "hint": "The stats below show only this project"
+  },
+  "input": {
+    "title": "How many characters did you write today?",
+    "placeholder": "For example: 500",
+    "writtenLabel": "Written",
+    "deletedLabel": "Deleted",
+    "deletedPlaceholder": "For example: 1500",
+    "revisionHint": "Revision mode: cutting text is work too, and progress won't drop.",
+    "revisionToday": "Today: +{{written}} written · −{{deleted}} deleted · net {{net}}"
+  },
+  "passport": {
+    "title": "Writer's Passport",
+    "subtitle": "A beautiful card with your achievements",
+    "create": "Create",
+    "themeLabel": "Theme:",
+    "themeClean": "Clean",
+    "themeDark": "Dark",
+    "generating": "Generating...",
+    "downloadPdf": "Download PDF",
+    "downloadImage": "Download image",
+    "authorName": "Writer"
+  },
+  "chart": {
+    "title": "Last 7 days",
+    "legend": "Characters per day",
+    "max": "Max: {{value}} characters"
+  },
+  "history": {
+    "title": "All entries ({{count}})",
+    "symbols": "{{value}} characters"
+  },
+  "calendar": {
+    "title": "Activity calendar",
+    "subtitle": "Last 8 weeks — the darker the square, the more you wrote",
+    "noEntries": "{{date}}: No entries",
+    "withEntries": "{{date}}: {{count}} characters",
+    "less": "Less",
+    "more": "More",
+    "days": {
+      "mon": "Mon",
+      "tue": "Tue",
+      "wed": "Wed",
+      "thu": "Thu",
+      "fri": "Fri",
+      "sat": "Sat",
+      "sun": "Sun"
+    }
+  },
+  "records": {
+    "title": "🏆 Your records",
+    "bestDay": "Best day",
+    "bestDaySymbols": "{{value}} characters",
+    "longestStreak": "Longest Streak",
+    "dayOne": "{{count}} day",
+    "dayFew": "{{count}} days",
+    "dayMany": "{{count}} days",
+    "activeNow": "Active now! 🔥",
+    "recordPast": "Record in the past",
+    "mostProductiveWeek": "Most productive week",
+    "mostProductiveWeekSymbols": "{{value}} characters",
+    "over7Days": "Over 7 days in a row"
+  },
+  "achievements": {
+    "title": "Achievements",
+    "items": {
+      "first": {
+        "title": "First step",
+        "description": "Made your first entry"
+      },
+      "1000": {
+        "title": "1000 characters",
+        "description": "Wrote 1000+ characters"
+      },
+      "5000": {
+        "title": "5000 characters",
+        "description": "Wrote 5000+"
+      },
+      "10000": {
+        "title": "10000 characters",
+        "description": "Wrote 10000+"
+      },
+      "first_book": {
+        "title": "First book",
+        "description": "Completed your first project"
+      },
+      "week": {
+        "title": "A week in a row",
+        "description": "Wrote 7 days in a row"
+      },
+      "month": {
+        "title": "Month of strength",
+        "description": "Wrote 30 days in a row"
+      }
+    }
+  }
+}

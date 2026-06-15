@@ -1,0 +1,75 @@
+{
+  "title": "Settings",
+  "language": {
+    "title": "Language",
+    "ru": "Русский",
+    "en": "English",
+    "restartHint": "System controls (calendar, dialogs) will switch language after the app restarts"
+  },
+  "theme": {
+    "title": "Theme",
+    "dark": "Dark theme",
+    "light": "Light theme"
+  },
+  "about": {
+    "title": "About",
+    "description": "Knigotrek is a free, open-source application (MIT license).",
+    "supportPrefix": "Like it? The best support is a ⭐ star on GitHub:",
+    "starLink": "Star the repo",
+    "sourcePrefix": "Source code:",
+    "safety": "Download Knigotrek only from the official GitHub repository — we can't vouch for the safety of copies from third-party sites."
+  },
+  "notifications": {
+    "title": "Reminders",
+    "requestPrompt": "Allow notifications so Knigotrek can remind you to write every day",
+    "requestButton": "Allow notifications",
+    "blockedTitle": "Notifications are blocked in the browser",
+    "blockedHint": "Allow them in your browser settings (the lock icon to the left of the address bar)",
+    "granted": "Notifications allowed",
+    "enableDaily": "Enable daily reminders",
+    "timeLabel": "Reminder time",
+    "timeHint": "Every day at this time you'll get a reminder",
+    "testButton": "Show test notification",
+    "enabledTitle": "Knigotrek",
+    "enabledBody": "Notifications enabled! Now you won't forget to write 📝",
+    "testTitle": "Knigotrek — Time to write!",
+    "testBody": "Even 200 characters is progress. Open the app and get started! 📝",
+    "howItWorksTitle": "How does this work?",
+    "howItWorks1": "Notifications only work while the browser is open",
+    "howItWorks2": "A reminder arrives once a day at the chosen time",
+    "howItWorks3": "You can turn it off at any time"
+  },
+  "backups": {
+    "title": "Automatic backups",
+    "enabled": "Automatic backups are enabled",
+    "enabledHint": "Backups are created every day at 2:00 AM and the last 7 days are kept.",
+    "browserOnly": "Automatic backups are available only in the desktop version.",
+    "browserOnlyHint": "In the browser, use manual data export.",
+    "createNow": "Create a backup now",
+    "createSuccess": "Backup created successfully!",
+    "createError": "Backup creation error: {{error}}",
+    "unknownError": "Unknown error",
+    "createFailed": "Error while creating the backup"
+  },
+  "hiddenProjects": {
+    "title": "Hidden projects ({{count}})",
+    "description": "Projects you've hidden from the list. You can restore them at any time.",
+    "show": "Show"
+  },
+  "data": {
+    "title": "Export/Import data",
+    "export": "Export all data",
+    "import": "Import data",
+    "importConfirmTitle": "Import data",
+    "importConfirmButton": "Import",
+    "importSuccess": "Data imported successfully! The page will be reloaded.",
+    "importError": "Error importing data. Check the file format.",
+    "hint": "Export your data before updating the browser or to transfer it to another device",
+    "exportError": "Error exporting data"
+  },
+  "tray": {
+    "title": "Window behavior",
+    "trayLabel": "Minimize to tray on window close",
+    "trayHint": "The app keeps running in the background (backups and the evening reminder keep working). Quit via File → Quit or from the tray."
+  }
+}

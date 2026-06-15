@@ -1,0 +1,40 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Build & test artifacts
+coverage
+release
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment variables — NEVER commit!
+.env
+.env.local
+.env.*.local
+
+# Сгенерированные примеры/артефакты
+*.pdf
+dist-preview
+
+# Приватный журнал разработки (не для публичного репо)
+DEVLOG.md
