@@ -1,7 +1,9 @@
 {
   "title": "Settings",
   "changelog": {
-    "title": "Update log"
+    "title": "Update log",
+    "showAll": "Show all ({{count}})",
+    "showLess": "Show less"
   },
   "language": {
     "title": "Language",

@@ -1,7 +1,9 @@
 {
   "title": "Настройки",
   "changelog": {
-    "title": "Журнал обновлений"
+    "title": "Журнал обновлений",
+    "showAll": "Показать все ({{count}})",
+    "showLess": "Свернуть"
   },
   "language": {
     "title": "Язык",

@@ -11,6 +11,9 @@ import { format } from 'date-fns'
 import { dfnsLocale } from '../i18n/dateLocale'
 import { parseLocalDate } from '../utils/dates'
 
+// Сколько версий журнала показывать до нажатия «Показать все»
+const CHANGELOG_PREVIEW_COUNT = 5
+
 interface SettingsPageProps {
   theme: 'light' | 'dark'
   toggleTheme: () => void
@@ -24,6 +27,7 @@ function SettingsPage({ theme, toggleTheme }: SettingsPageProps) {
   const [notificationPermission, setNotificationPermission] = useState<NotificationPermission>('default')
   const [trayOnClose, setTrayOnClose] = useState(false)
   const [hiddenProjects, setHiddenProjects] = useState<Project[]>([])
+  const [showAllChangelog, setShowAllChangelog] = useState(false)
   const { showToast } = useToast()
   const { confirm } = useConfirm()
 
@@ -228,7 +232,7 @@ function SettingsPage({ theme, toggleTheme }: SettingsPageProps) {
             {t('settings:changelog.title')}
           </h2>
           <div className="space-y-4">
-            {CHANGELOG.map((entry) => (
+            {(showAllChangelog ? CHANGELOG : CHANGELOG.slice(0, CHANGELOG_PREVIEW_COUNT)).map((entry) => (
               <div
                 key={entry.version}
                 className="bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg p-4"
@@ -250,6 +254,16 @@ function SettingsPage({ theme, toggleTheme }: SettingsPageProps) {
               </div>
             ))}
           </div>
+          {CHANGELOG.length > CHANGELOG_PREVIEW_COUNT && (
+            <button
+              onClick={() => setShowAllChangelog((v) => !v)}
+              className="mt-3 text-sm text-indigo-600 dark:text-indigo-400 hover:underline"
+            >
+              {showAllChangelog
+                ? t('settings:changelog.showLess')
+                : t('settings:changelog.showAll', { count: CHANGELOG.length })}
+            </button>
+          )}
         </div>
 
         {/* Уведомления */}
