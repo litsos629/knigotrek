@@ -4,7 +4,7 @@ import HelpTip from './HelpTip'
 import { useToast } from './Toast'
 import { formatNumber } from '../i18n/dateLocale'
 import { FAMILY_ORDER, type AchievementDef, type AchievementFamily } from '../data/achievements'
-import { loadStats, syncAchievements, buildViews, type AchievementView } from '../services/achievementsService'
+import { loadStats, syncAchievements, buildViews, markManual, type AchievementView } from '../services/achievementsService'
 
 interface AchievementsCardProps {
   /** Меняется при изменении данных (например, сумма символов) — триггер пересчёта. */
@@ -15,12 +15,29 @@ function AchievementsCard({ refreshKey = 0 }: AchievementsCardProps) {
   const { t } = useTranslation()
   const { showToast } = useToast()
   const [views, setViews] = useState<AchievementView[]>([])
+  // Бамп для пересчёта после ручной отметки эмоционального момента
+  const [localRefresh, setLocalRefresh] = useState(0)
 
-  // Человекочитаемый заголовок достижения (семейство — шаблон с числом, feat — свой текст)
+  // Человекочитаемый заголовок (семейство — шаблон с числом, feat/creative — свой текст)
   const titleOf = (def: AchievementDef): string =>
     def.family === 'feat'
       ? t(`achievements:feats.${def.id}.title`)
-      : t(`achievements:families.${def.family}.title`, { value: formatNumber(def.titleValue) })
+      : def.family === 'creative'
+        ? t(`achievements:creative.${def.id}.title`)
+        : t(`achievements:families.${def.family}.title`, { value: formatNumber(def.titleValue ?? 0) })
+
+  const descOf = (def: AchievementDef): string =>
+    def.family === 'feat'
+      ? t(`achievements:feats.${def.id}.desc`)
+      : def.family === 'creative'
+        ? t(`achievements:creative.${def.id}.desc`)
+        : ''
+
+  const handleMark = async (def: AchievementView) => {
+    await markManual(def.id)
+    showToast(t('achievements:markedToast', { title: titleOf(def) }), 'success')
+    setLocalRefresh((v) => v + 1)
+  }
 
   useEffect(() => {
     let cancelled = false
@@ -38,7 +55,7 @@ function AchievementsCard({ refreshKey = 0 }: AchievementsCardProps) {
       cancelled = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [refreshKey])
+  }, [refreshKey, localRefresh])
 
   const unlockedCount = views.filter((v) => v.unlocked).length
 
@@ -74,23 +91,31 @@ function AchievementsCard({ refreshKey = 0 }: AchievementsCardProps) {
                 </span>
               </div>
 
-              {family === 'feat' ? (
-                // «Подвиги» — отдельные плитки со своим названием и описанием
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              {family === 'feat' || family === 'creative' ? (
+                // Плитки: «подвиги» (авто) и эмоции (отмечаются вручную)
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                   {items.map((v) => (
                     <div
                       key={v.id}
-                      title={t(`achievements:feats.${v.id}.desc`)}
-                      className={`p-2 rounded-lg border text-center transition ${
+                      title={descOf(v)}
+                      className={`p-2 rounded-lg border text-center transition flex flex-col items-center ${
                         v.unlocked
                           ? 'bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/30 dark:to-orange-900/30 border-yellow-300 dark:border-yellow-700'
-                          : 'bg-gray-100 dark:bg-gray-700 border-gray-200 dark:border-gray-600 opacity-60'
+                          : 'bg-gray-100 dark:bg-gray-700 border-gray-200 dark:border-gray-600 opacity-70'
                       }`}
                     >
                       <div className="text-2xl">{v.unlocked ? v.emoji : '🔒'}</div>
                       <div className="text-[11px] leading-tight text-gray-700 dark:text-gray-300 mt-1">
-                        {t(`achievements:feats.${v.id}.title`)}
+                        {titleOf(v)}
                       </div>
+                      {family === 'creative' && !v.unlocked && (
+                        <button
+                          onClick={() => handleMark(v)}
+                          className="mt-2 px-2 py-0.5 text-[11px] rounded bg-indigo-600 text-white hover:bg-indigo-700 transition"
+                        >
+                          {t('achievements:markButton')}
+                        </button>
+                      )}
                     </div>
                   ))}
                 </div>

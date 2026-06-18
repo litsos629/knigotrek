@@ -5,6 +5,7 @@ import {
   evaluateAuto,
   buildViews,
   syncAchievements,
+  markManual,
 } from '../achievementsService'
 
 vi.mock('../databaseService')
@@ -82,6 +83,13 @@ describe('achievementsService — чистые расчёты', () => {
     expect(v1.unlocked).toBe(false)
     expect(v1.progress).toBeCloseTo(0.5)
   })
+
+  it('эмоциональные (manual) не открываются авто — только по отметке', () => {
+    const big = { ...computeStats([], [], [], []), totalSymbols: 9_999_999 }
+    expect(evaluateAuto(big)).not.toContain('creative_tears')
+    expect(buildViews(big, new Set()).find((v) => v.id === 'creative_tears')!.unlocked).toBe(false)
+    expect(buildViews(big, new Set(['creative_tears'])).find((v) => v.id === 'creative_tears')!.unlocked).toBe(true)
+  })
 })
 
 describe('achievementsService — персистентность', () => {
@@ -113,6 +121,12 @@ describe('achievementsService — персистентность', () => {
     const ids = res.newlyUnlocked.map((a) => a.id)
     expect(ids).toContain('volume_3')
     expect(ids).not.toContain('volume_1') // уже было
+  })
+
+  it('markManual открывает ручное достижение и оно сохраняется', async () => {
+    await markManual('creative_twist')
+    const res = await syncAchievements(computeStats([], [], [], []))
+    expect(res.unlockedIds.has('creative_twist')).toBe(true)
   })
 
   it('разблокировка необратима: падение метрики не закрывает достижение', async () => {

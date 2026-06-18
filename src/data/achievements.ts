@@ -30,15 +30,22 @@ export type AchievementFamily =
   | 'chapters'
   | 'projects'
   | 'feat'
+  | 'creative'
+
+/** auto — открывается по метрике; manual — отмечается пользователем (эмоции). */
+export type AchievementType = 'auto' | 'manual'
 
 export interface AchievementDef {
   id: string
   family: AchievementFamily
-  metric: AchievementMetric
-  /** Значение метрики для разблокировки. */
-  threshold: number
+  /** По умолчанию 'auto'. */
+  type?: AchievementType
+  /** Для auto: какая метрика. */
+  metric?: AchievementMetric
+  /** Для auto: значение метрики для разблокировки. */
+  threshold?: number
   /** Число, показываемое в заголовке (для focus — часы, хотя метрика в минутах). */
-  titleValue: number
+  titleValue?: number
   emoji: string
   /** Скрытые не показываются до разблокировки (зарезервировано, Фаза 3). */
   hidden?: boolean
@@ -120,9 +127,23 @@ export const ACHIEVEMENTS: AchievementDef[] = [
   { id: 'feat_weekend_warrior', family: 'feat', metric: 'maxDaySymbols', threshold: 5000, titleValue: 5000, emoji: '⚔️' },
   { id: 'feat_flow', family: 'feat', metric: 'maxSessionMinutes', threshold: 60, titleValue: 60, emoji: '🌊' },
   { id: 'feat_deep_dive', family: 'feat', metric: 'maxSessionMinutes', threshold: 180, titleValue: 180, emoji: '🧘' },
+
+  // Творческие/эмоциональные — отмечаются пользователем вручную (текст книги не трогаем)
+  { id: 'creative_tears', family: 'creative', type: 'manual', emoji: '😢' },
+  { id: 'creative_laugh', family: 'creative', type: 'manual', emoji: '😂' },
+  { id: 'creative_twist', family: 'creative', type: 'manual', emoji: '💡' },
+  { id: 'creative_perfect_word', family: 'creative', type: 'manual', emoji: '✨' },
+  { id: 'creative_character', family: 'creative', type: 'manual', emoji: '💗' },
+  { id: 'creative_farewell', family: 'creative', type: 'manual', emoji: '⚰️' },
+  { id: 'creative_the_end', family: 'creative', type: 'manual', emoji: '🏁' },
+  { id: 'creative_permission', family: 'creative', type: 'manual', emoji: '🗑️' },
+  { id: 'creative_converge', family: 'creative', type: 'manual', emoji: '🧩' },
 ]
 
 /** Порядок семейств для отображения в карточке. */
 export const FAMILY_ORDER: AchievementFamily[] = [
-  'volume', 'streak', 'activeDays', 'focus', 'sessions', 'chapters', 'projects', 'feat',
+  'volume', 'streak', 'activeDays', 'focus', 'sessions', 'chapters', 'projects', 'feat', 'creative',
 ]
+
+/** id достижений, отмечаемых вручную (эмоциональные моменты). */
+export const MANUAL_ACHIEVEMENTS: AchievementDef[] = ACHIEVEMENTS.filter((a) => a.type === 'manual')

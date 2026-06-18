@@ -5,6 +5,8 @@ import type { SessionData } from '../services/reports/sessionCard'
 import { downloadDataUrl } from '../services/reports/reportUtils'
 import type { ThemeId } from '../services/reports/reportThemes'
 import { getSessionTags, formatTags } from '../config/appConfig'
+import { MANUAL_ACHIEVEMENTS } from '../data/achievements'
+import { markManual } from '../services/achievementsService'
 
 interface SessionReportModalProps {
   sessionData: SessionData
@@ -23,12 +25,15 @@ function SessionReportModal({ sessionData, isOpen, onClose }: SessionReportModal
   const [isGenerating, setIsGenerating] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [successMessage, setSuccessMessage] = useState<string | null>(null)
+  // Эмоциональные моменты, отмеченные в этой сессии (для галочки в чипах)
+  const [marked, setMarked] = useState<Set<string>>(new Set())
 
   // Модалка остаётся смонтированной — без сброса при открытии висели бы старые сообщения
   useEffect(() => {
     if (isOpen) {
       setError(null)
       setSuccessMessage(null)
+      setMarked(new Set())
     }
   }, [isOpen])
 
@@ -37,6 +42,12 @@ function SessionReportModal({ sessionData, isOpen, onClose }: SessionReportModal
   const showSuccess = (msg: string) => {
     setSuccessMessage(msg)
     setTimeout(() => setSuccessMessage(null), 3000)
+  }
+
+  const handleMarkMoment = async (id: string) => {
+    await markManual(id)
+    setMarked((prev) => new Set(prev).add(id))
+    showSuccess(t('achievements:markedToast', { title: t(`achievements:creative.${id}.title`) }))
   }
 
   const handleDownloadImage = async () => {
@@ -190,6 +201,33 @@ function SessionReportModal({ sessionData, isOpen, onClose }: SessionReportModal
                 🔥 {t('focus:report.daysStreak', { count: sessionData.streak })}
               </div>
             )}
+          </div>
+
+          {/* Эмоциональные моменты сессии — отметить достижение (по желанию) */}
+          <div className="mb-4 rounded-lg border border-gray-200 dark:border-gray-700 p-3">
+            <div className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2">
+              {t('achievements:sessionMomentsTitle')}
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {MANUAL_ACHIEVEMENTS.map((a) => {
+                const done = marked.has(a.id)
+                return (
+                  <button
+                    key={a.id}
+                    onClick={() => handleMarkMoment(a.id)}
+                    disabled={done}
+                    title={t(`achievements:creative.${a.id}.desc`)}
+                    className={`px-2.5 py-1 rounded-full text-xs transition ${
+                      done
+                        ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 ring-1 ring-green-300 dark:ring-green-700 cursor-default'
+                        : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                    }`}
+                  >
+                    {a.emoji} {t(`achievements:creative.${a.id}.title`)}{done ? ' ✓' : ''}
+                  </button>
+                )
+              })}
+            </div>
           </div>
 
           {/* Tabs */}

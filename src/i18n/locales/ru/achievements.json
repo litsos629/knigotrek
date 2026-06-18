@@ -9,7 +9,22 @@
     "sessions": { "name": "Сессии", "title": "Сессий фокуса: {{value}}" },
     "chapters": { "name": "Главы", "title": "Готовых глав: {{value}}" },
     "projects": { "name": "Книги", "title": "Завершённых книг: {{value}}" },
-    "feat": { "name": "Особые", "title": "" }
+    "feat": { "name": "Особые", "title": "" },
+    "creative": { "name": "Эмоции", "title": "" }
+  },
+  "markButton": "Отметить",
+  "markedToast": "✨ Отмечено: {{title}}",
+  "sessionMomentsTitle": "Что было в этой сессии? (по желанию)",
+  "creative": {
+    "creative_tears": { "title": "Слёзы писателя", "desc": "Написал сцену, от которой сам прослезился" },
+    "creative_laugh": { "title": "Смех сквозь слёзы", "desc": "Написал сцену, которая самому кажется смешной" },
+    "creative_twist": { "title": "Эврика!", "desc": "Придумал поворот, удививший тебя самого" },
+    "creative_perfect_word": { "title": "Идеальное слово", "desc": "Нашёл то самое слово или фразу" },
+    "creative_character": { "title": "Персонаж ожил", "desc": "Герой «сам повёл» сцену" },
+    "creative_farewell": { "title": "Прощание", "desc": "Расстался с персонажем, к которому привязался" },
+    "creative_the_end": { "title": "Конец?", "desc": "Написал «Конец» в черновике" },
+    "creative_permission": { "title": "Разрешение на провал", "desc": "Осознанно написал «плохой» текст и пошёл дальше" },
+    "creative_converge": { "title": "Всё сходится", "desc": "Связал сюжетные линии воедино" }
   },
   "feats": {
     "feat_marathon": { "title": "Марафонец", "desc": "1 667 символов за одну сессию" },

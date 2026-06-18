@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen } from '../../test/test-utils'
 import AchievementsCard from '../AchievementsCard'
 import * as svc from '../../services/achievementsService'
+import { ACHIEVEMENTS } from '../../data/achievements'
 
 // Мокаем только обращения к БД (loadStats/syncAchievements); buildViews — настоящий
 vi.mock('../../services/achievementsService', async (importOriginal) => {
@@ -40,7 +41,7 @@ describe('AchievementsCard', () => {
       newlyUnlocked: [],
     })
     render(<AchievementsCard />)
-    // volume_1 (1000) и volume_2 (5000) открыты → счётчик «2/50»
-    expect(await screen.findByText('2/50')).toBeInTheDocument()
+    // volume_1 (1000) и volume_2 (5000) открыты → счётчик «2/<всего>»
+    expect(await screen.findByText(`2/${ACHIEVEMENTS.length}`)).toBeInTheDocument()
   })
 })

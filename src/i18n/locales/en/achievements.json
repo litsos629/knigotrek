@@ -9,7 +9,22 @@
     "sessions": { "name": "Sessions", "title": "Focus sessions: {{value}}" },
     "chapters": { "name": "Chapters", "title": "Chapters done: {{value}}" },
     "projects": { "name": "Books", "title": "Books finished: {{value}}" },
-    "feat": { "name": "Feats", "title": "" }
+    "feat": { "name": "Feats", "title": "" },
+    "creative": { "name": "Moments", "title": "" }
+  },
+  "markButton": "Mark",
+  "markedToast": "✨ Marked: {{title}}",
+  "sessionMomentsTitle": "What happened this session? (optional)",
+  "creative": {
+    "creative_tears": { "title": "Writer's Tears", "desc": "Wrote a scene that brought tears to your own eyes" },
+    "creative_laugh": { "title": "Laugh Through Tears", "desc": "Wrote a scene that you find funny yourself" },
+    "creative_twist": { "title": "Eureka!", "desc": "Came up with a twist that surprised you" },
+    "creative_perfect_word": { "title": "The Perfect Word", "desc": "Found just the right word or phrase" },
+    "creative_character": { "title": "A Character Came Alive", "desc": "A character 'took over' the scene" },
+    "creative_farewell": { "title": "Farewell", "desc": "Parted with a character you grew attached to" },
+    "creative_the_end": { "title": "The End?", "desc": "Wrote 'The End' in a draft" },
+    "creative_permission": { "title": "Permission to Suck", "desc": "Deliberately wrote 'bad' text and moved on" },
+    "creative_converge": { "title": "It All Comes Together", "desc": "Tied your plot threads together" }
   },
   "feats": {
     "feat_marathon": { "title": "Marathoner", "desc": "1,667 characters in one session" },

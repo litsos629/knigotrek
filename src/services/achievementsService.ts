@@ -80,10 +80,11 @@ export function computeStats(
   }
 }
 
-/** id достижений, чьи пороги достигнуты при текущей статистике. */
+/** id авто-достижений, чьи пороги достигнуты при текущей статистике (manual не трогаем). */
 export function evaluateAuto(stats: AchievementStats): string[] {
   return ACHIEVEMENTS
-    .filter((a) => (stats[a.metric as AchievementMetric] ?? 0) >= a.threshold)
+    .filter((a) => a.type !== 'manual' && a.metric != null && a.threshold != null)
+    .filter((a) => (stats[a.metric as AchievementMetric] ?? 0) >= (a.threshold as number))
     .map((a) => a.id)
 }
 
@@ -98,9 +99,15 @@ export interface AchievementView extends AchievementDef {
 /** Готовит данные для UI: для каждого достижения — открыто ли, текущее значение и прогресс. */
 export function buildViews(stats: AchievementStats, unlockedIds: Set<string>): AchievementView[] {
   return ACHIEVEMENTS.map((a) => {
-    const current = stats[a.metric as AchievementMetric] ?? 0
-    const unlocked = unlockedIds.has(a.id) || current >= a.threshold
-    const progress = a.threshold > 0 ? Math.min(1, current / a.threshold) : unlocked ? 1 : 0
+    // Ручные (эмоциональные) — только по отметке пользователя, метрики нет
+    if (a.type === 'manual') {
+      const unlocked = unlockedIds.has(a.id)
+      return { ...a, unlocked, current: unlocked ? 1 : 0, progress: unlocked ? 1 : 0 }
+    }
+    const threshold = a.threshold ?? 0
+    const current = a.metric ? stats[a.metric as AchievementMetric] ?? 0 : 0
+    const unlocked = unlockedIds.has(a.id) || (threshold > 0 && current >= threshold)
+    const progress = threshold > 0 ? Math.min(1, current / threshold) : unlocked ? 1 : 0
     return { ...a, unlocked, current, progress }
   })
 }
