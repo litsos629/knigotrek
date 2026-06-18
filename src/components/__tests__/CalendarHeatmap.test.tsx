@@ -1,30 +1,6 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { render } from '../../test/test-utils'
 import CalendarHeatmap from '../CalendarHeatmap'
-
-// Мокаем date-fns
-vi.mock('date-fns', () => ({
-  format: (date: Date, format: string) => {
-    if (format === 'yyyy-MM-dd') return '2024-01-26'
-    if (format === 'd MMMM yyyy') return '26 января 2024'
-    return date.toISOString()
-  },
-  subDays: (date: Date, days: number) => {
-    return new Date(date.getTime() - days * 24 * 60 * 60 * 1000)
-  },
-  startOfWeek: (date: Date) => date,
-  endOfWeek: (date: Date) => date,
-  eachDayOfInterval: ({ start, end }: { start: Date; end: Date }) => {
-    const days = []
-    const current = new Date(start)
-    while (current <= end) {
-      days.push(new Date(current))
-      current.setDate(current.getDate() + 1)
-    }
-    return days
-  },
-  ru: {}
-}))
 
 describe('CalendarHeatmap', () => {
   it('должен отображать календарь', () => {

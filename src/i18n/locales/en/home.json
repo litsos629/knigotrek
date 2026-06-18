@@ -42,7 +42,7 @@
   },
   "calendar": {
     "title": "Activity calendar",
-    "subtitle": "Last 8 weeks — the darker the square, the more you wrote",
+    "subtitle": "Last 6 months — the darker the square, the more you wrote",
     "noEntries": "{{date}}: No entries",
     "withEntries": "{{date}}: {{count}} characters",
     "less": "Less",
