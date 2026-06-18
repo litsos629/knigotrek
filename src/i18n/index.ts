@@ -23,12 +23,14 @@ import ruAssistant from './locales/ru/assistant.json'
 import enAssistant from './locales/en/assistant.json'
 import ruConfig from './locales/ru/config.json'
 import enConfig from './locales/en/config.json'
+import ruAchievements from './locales/ru/achievements.json'
+import enAchievements from './locales/en/achievements.json'
 
 export type Lang = 'ru' | 'en'
 const STORAGE_KEY = 'knigotrek_lang'
 
 export const NAMESPACES = [
-  'common', 'settings', 'home', 'projects', 'focus', 'notes', 'sync', 'reports', 'modals', 'assistant', 'config',
+  'common', 'settings', 'home', 'projects', 'focus', 'notes', 'sync', 'reports', 'modals', 'assistant', 'config', 'achievements',
 ] as const
 
 /** Определяет начальный язык: сохранённый выбор → системный → ru. */
@@ -47,12 +49,12 @@ export const resources = {
   ru: {
     common: ruCommon, settings: ruSettings, home: ruHome, projects: ruProjects,
     focus: ruFocus, notes: ruNotes, sync: ruSync, reports: ruReports, modals: ruModals,
-    assistant: ruAssistant, config: ruConfig,
+    assistant: ruAssistant, config: ruConfig, achievements: ruAchievements,
   },
   en: {
     common: enCommon, settings: enSettings, home: enHome, projects: enProjects,
     focus: enFocus, notes: enNotes, sync: enSync, reports: enReports, modals: enModals,
-    assistant: enAssistant, config: enConfig,
+    assistant: enAssistant, config: enConfig, achievements: enAchievements,
   },
 } as const
 

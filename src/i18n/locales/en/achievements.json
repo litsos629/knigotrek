@@ -1,0 +1,20 @@
+{
+  "unlockedToast": "🏆 Achievement unlocked: {{title}}",
+  "nextHint": "to next",
+  "families": {
+    "volume": { "name": "Volume", "title": "Characters: {{value}}" },
+    "streak": { "name": "Streaks", "title": "Days in a row: {{value}}" },
+    "activeDays": { "name": "Activity", "title": "Active days: {{value}}" },
+    "focus": { "name": "Focus", "title": "Hours of focus: {{value}}" },
+    "sessions": { "name": "Sessions", "title": "Focus sessions: {{value}}" },
+    "chapters": { "name": "Chapters", "title": "Chapters done: {{value}}" },
+    "projects": { "name": "Books", "title": "Books finished: {{value}}" },
+    "feat": { "name": "Feats", "title": "" }
+  },
+  "feats": {
+    "feat_marathon": { "title": "Marathoner", "desc": "1,667 characters in one session" },
+    "feat_weekend_warrior": { "title": "Weekend Warrior", "desc": "5,000 characters in a single day" },
+    "feat_flow": { "title": "Flow", "desc": "An hour of writing without a break" },
+    "feat_deep_dive": { "title": "Deep Dive", "desc": "3 hours in one session" }
+  }
+}

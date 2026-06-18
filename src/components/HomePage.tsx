@@ -341,12 +341,9 @@ function HomePage({ selectedProjectId, setSelectedProjectId }: HomePageProps) {
       </div>
 
       {/* Ачивки */}
-      <AchievementsCard
-        totalSymbols={totalSymbols}
-        entriesCount={filteredEntries.length}
-        streak={streak}
-        completedProjects={projects.filter(p => p.status === 'completed').length}
-      />
+      {/* Достижения считаются по всем данным (глобально); refreshKey обновляет
+          карточку после новой записи символов */}
+      <AchievementsCard refreshKey={entries.reduce((s, e) => s + e.symbols, 0)} />
 
       {/* Паспорт писателя */}
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-6">

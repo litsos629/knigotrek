@@ -1,0 +1,20 @@
+{
+  "unlockedToast": "🏆 Достижение открыто: {{title}}",
+  "nextHint": "до следующего",
+  "families": {
+    "volume": { "name": "Объём", "title": "Символов: {{value}}" },
+    "streak": { "name": "Серии", "title": "Дней подряд: {{value}}" },
+    "activeDays": { "name": "Активность", "title": "Дней с записями: {{value}}" },
+    "focus": { "name": "Фокус", "title": "Часов фокуса: {{value}}" },
+    "sessions": { "name": "Сессии", "title": "Сессий фокуса: {{value}}" },
+    "chapters": { "name": "Главы", "title": "Готовых глав: {{value}}" },
+    "projects": { "name": "Книги", "title": "Завершённых книг: {{value}}" },
+    "feat": { "name": "Особые", "title": "" }
+  },
+  "feats": {
+    "feat_marathon": { "title": "Марафонец", "desc": "1 667 символов за одну сессию" },
+    "feat_weekend_warrior": { "title": "Выходной воин", "desc": "5 000 символов за один день" },
+    "feat_flow": { "title": "Поток", "desc": "Час письма без паузы" },
+    "feat_deep_dive": { "title": "Глубокое погружение", "desc": "3 часа в одной сессии" }
+  }
+}
