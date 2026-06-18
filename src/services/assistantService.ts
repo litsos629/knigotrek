@@ -361,6 +361,40 @@ export async function getAdvices(
     })
   }
 
+  // Процессные/эмоциональные подсказки (мягкие, низкий приоритет — всплывают,
+  // когда нет ничего срочного). Дополняют, не заменяют прогноз/аналитику.
+  if (stats.sessions.length >= 3) {
+    advices.push({
+      emoji: '✨',
+      title: t('advice.markMomentTitle'),
+      text: t('advice.markMomentText'),
+      priority: 1
+    })
+  }
+
+  const daysSinceLast = stats.lastEntryDate
+    ? Math.floor((Date.now() - new Date(stats.lastEntryDate).getTime()) / 86400000)
+    : Infinity
+  if (stats.entriesCount > 0 && daysSinceLast >= 3 && daysSinceLast < 30) {
+    // Застрял после паузы — снять давление перфекционизма
+    advices.push({
+      emoji: '🌱',
+      title: t('advice.permissionTitle'),
+      text: t('advice.permissionText'),
+      priority: 3
+    })
+  }
+
+  if (stats.streak >= 7) {
+    // Празднуем процесс, а не только цифры
+    advices.push({
+      emoji: '🎉',
+      title: t('advice.celebrateTitle'),
+      text: t('advice.celebrateText', { streak: stats.streak }),
+      priority: 1
+    })
+  }
+
   // Сортируем по приоритету, ротация одного приоритета через время
   const now = Date.now()
   const rotationSeed = Math.floor(now / (1000 * 60 * 30)) // меняется каждые 30 минут

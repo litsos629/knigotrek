@@ -198,6 +198,12 @@
     "weekQuietTitle": "A quiet week",
     "weekQuietText": "Not much this week — but the main thing is to start! Try writing 15 minutes every day.",
     "weekProductiveTitle": "A productive week!",
-    "weekProductiveText": "{{symbols}} characters in 7 days! Great work!"
+    "weekProductiveText": "{{symbols}} characters in 7 days! Great work!",
+    "markMomentTitle": "Mark the moment",
+    "markMomentText": "Had a strong scene — tears, laughter, an unexpected twist? Mark it in Achievements; moments like these matter more than numbers.",
+    "permissionTitle": "Give yourself permission to suck",
+    "permissionText": "Stuck? Lower the bar: write 200 characters as-is, no judgment. A draft is supposed to be rough.",
+    "celebrateTitle": "Celebrate the process",
+    "celebrateText": "{{streak}} days in a row — that's a habit now. Small wins matter more than perfect pages."
   }
 }
