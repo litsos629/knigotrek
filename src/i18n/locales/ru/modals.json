@@ -41,5 +41,10 @@
   "confirm": {
     "defaultCancel": "Отмена",
     "defaultConfirm": "Подтвердить"
+  },
+  "whatsNew": {
+    "title": "Что нового в {{version}}",
+    "subtitle": "Спасибо, что обновились!",
+    "gotIt": "Понятно"
   }
 }

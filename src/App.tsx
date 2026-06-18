@@ -7,6 +7,8 @@ import NotesPage from './components/NotesPage'
 import SettingsPage from './components/SettingsPage'
 import FocusPage from './components/FocusPage'
 import WelcomeModal from './components/WelcomeModal'
+import WhatsNewModal from './components/WhatsNewModal'
+import { LATEST_VERSION } from './data/changelog'
 import SyncPage from './components/SyncPage'
 import ReportGenerator from './components/ReportGenerator'
 import WeeklyDigestModal, { shouldShowWeeklyDigest } from './components/WeeklyDigestModal'
@@ -51,6 +53,7 @@ function App() {
   const [selectedProjectId, setSelectedProjectId] = useState<string>('all')
   const [theme, setTheme] = useState<'light' | 'dark'>('light')
   const [showWelcome, setShowWelcome] = useState(false)
+  const [showWhatsNew, setShowWhatsNew] = useState(false)
   const [showWeeklyDigest, setShowWeeklyDigest] = useState(false)
 
   // State для таймера (чтобы не сбрасывался при переключении страниц)
@@ -80,9 +83,13 @@ function App() {
       }
     }
     
-    // Проверяем онбординг
+    // Проверяем онбординг. Новым пользователям показываем приветствие, а уже
+    // знакомым с приложением — окно «Что нового», если они ещё не видели свежую
+    // версию (сравниваем сохранённую версию с актуальной из журнала обновлений).
     if (!localStorage.getItem('knigotrek_welcomed')) {
       setShowWelcome(true)
+    } else if (localStorage.getItem('knigotrek_lastSeenVersion') !== LATEST_VERSION) {
+      setShowWhatsNew(true)
     }
 
     // Инициализируем Supabase и восстанавливаем сессию
@@ -218,10 +225,17 @@ function App() {
   const handleWelcomeClose = () => {
     setShowWelcome(false)
     localStorage.setItem('knigotrek_welcomed', '1')
+    // Новый пользователь уже видит актуальную версию — не показываем ему «Что нового».
+    localStorage.setItem('knigotrek_lastSeenVersion', LATEST_VERSION)
     const saved = localStorage.getItem('knigotrek-settings')
     const settings = saved ? JSON.parse(saved) : {}
     settings.onboardingCompleted = true
     localStorage.setItem('knigotrek-settings', JSON.stringify(settings))
+  }
+
+  const handleWhatsNewClose = () => {
+    setShowWhatsNew(false)
+    localStorage.setItem('knigotrek_lastSeenVersion', LATEST_VERSION)
   }
 
   return (
@@ -239,7 +253,10 @@ function App() {
       
       {/* Онбординг */}
       {showWelcome && <WelcomeModal onClose={handleWelcomeClose} />}
-      
+
+      {/* Что нового после обновления */}
+      {showWhatsNew && <WhatsNewModal onClose={handleWhatsNewClose} />}
+
       {/* Еженедельный дайджест */}
       {showWeeklyDigest && (
         <WeeklyDigestModal onClose={() => setShowWeeklyDigest(false)} />

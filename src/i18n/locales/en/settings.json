@@ -1,5 +1,8 @@
 {
   "title": "Settings",
+  "changelog": {
+    "title": "Update log"
+  },
   "language": {
     "title": "Language",
     "ru": "Русский",

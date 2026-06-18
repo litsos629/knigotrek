@@ -6,6 +6,10 @@ import { getGenreLabel } from '../config/appConfig'
 import { useToast } from './Toast'
 import { useConfirm } from './ConfirmModal'
 import { setLanguage } from '../i18n'
+import { CHANGELOG } from '../data/changelog'
+import { format } from 'date-fns'
+import { dfnsLocale } from '../i18n/dateLocale'
+import { parseLocalDate } from '../utils/dates'
 
 interface SettingsPageProps {
   theme: 'light' | 'dark'
@@ -215,6 +219,36 @@ function SettingsPage({ theme, toggleTheme }: SettingsPageProps) {
             <p className="text-xs text-gray-500 dark:text-gray-400 pt-1">
               ⚠️ {t('settings:about.safety')}
             </p>
+          </div>
+        </div>
+
+        {/* Журнал обновлений */}
+        <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+          <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+            {t('settings:changelog.title')}
+          </h2>
+          <div className="space-y-4">
+            {CHANGELOG.map((entry) => (
+              <div
+                key={entry.version}
+                className="bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg p-4"
+              >
+                <div className="flex items-baseline justify-between mb-2">
+                  <span className="font-bold text-gray-800 dark:text-white">{entry.version}</span>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                    {format(parseLocalDate(entry.date), 'd MMMM yyyy', { locale: dfnsLocale() })}
+                  </span>
+                </div>
+                <ul className="space-y-1.5">
+                  {entry[currentLang].map((item, i) => (
+                    <li key={i} className="flex gap-2 text-sm text-gray-700 dark:text-gray-300">
+                      <span className="text-indigo-500 dark:text-indigo-400 flex-shrink-0">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
