@@ -22,7 +22,10 @@
     "supportPrefix": "Like it? The best support is a ⭐ star on GitHub:",
     "starLink": "Star the repo",
     "sourcePrefix": "Source code:",
-    "safety": "Download Knigotrek only from the official GitHub repository — we can't vouch for the safety of copies from third-party sites."
+    "safety": "Download Knigotrek only from the official GitHub repository — we can't vouch for the safety of copies from third-party sites.",
+    "donatePrefix": "Want to chip in? Entirely optional, changes nothing:",
+    "donateCloudtips": "CloudTips (Russia)",
+    "donateLava": "Lava.top (worldwide)"
   },
   "notifications": {
     "title": "Reminders",

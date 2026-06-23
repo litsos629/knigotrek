@@ -1,5 +1,6 @@
-# Кнопка «Sponsor» на GitHub. Сейчас отключена — поддержка только через ⭐ звезду.
-# Когда подключите денежный канал, раскомментируйте нужную строку и впишите хэндл:
-# github: [litsos629]                      # GitHub Sponsors (требует настройки в GitHub)
-# ko_fi: ВАШ_ХЭНДЛ                          # ko-fi.com/ВАШ_ХЭНДЛ
-# custom: ["https://paypal.me/ВАШ_ХЭНДЛ"]
+# Кнопка «Sponsor» на GitHub. Поддержать проект можно по желанию:
+# CloudTips — удобно из России, Lava.top — для международных платежей.
+# GitHub Sponsors / ko-fi / PayPal в РФ недоступны из-за санкций, поэтому через custom.
+custom:
+  - "https://pay.cloudtips.ru/p/cdb328df"
+  - "https://app.lava.top/529257398?tabId=donate"

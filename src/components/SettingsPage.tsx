@@ -209,6 +209,26 @@ function SettingsPage({ theme, toggleTheme }: SettingsPageProps) {
                 {t('settings:about.starLink')}
               </a>
             </p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              {t('settings:about.donatePrefix')}{' '}
+              <a
+                href="https://pay.cloudtips.ru/p/cdb328df"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-indigo-600 dark:text-indigo-400 hover:underline"
+              >
+                {t('settings:about.donateCloudtips')}
+              </a>
+              {' · '}
+              <a
+                href="https://app.lava.top/529257398?tabId=donate"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-indigo-600 dark:text-indigo-400 hover:underline"
+              >
+                {t('settings:about.donateLava')}
+              </a>
+            </p>
             <p className="text-sm text-gray-500 dark:text-gray-400">
               {t('settings:about.sourcePrefix')}{' '}
               <a
