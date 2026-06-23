@@ -208,6 +208,10 @@ create policy "own rows" on sync_settings for all using (auth.uid() = user_id) w
 Knigotrek is free and developed in spare time. If it's been useful to you:
 
 - ⭐ [**Star the repository**](https://github.com/litsos629/knigotrek) — this is the best and completely free way to support it
+- ☕ Want to chip in — [**CloudTips**](https://pay.cloudtips.ru/p/cdb328df) (convenient from Russia)
+- 🌍 From other countries — [**Lava.top**](https://app.lava.top/529257398?tabId=donate)
+
+Any donation is entirely optional and changes nothing: every feature stays open and free. Thank you! ❤️
 
 ## 💬 Feedback
 
