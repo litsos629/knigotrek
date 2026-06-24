@@ -1,19 +1,27 @@
 {
   "unlockedToast": "🏆 Achievement unlocked: {{title}}",
   "nextHint": "to next",
+  "progressLine": "{{current}} / {{threshold}} ({{percent}}%) · {{remaining}} to go",
+  "unlockedLabel": "Unlocked",
+  "hiddenTeaser": "Hidden achievement. Keep writing to reveal it.",
+  "comparisonWarPeace": "≈ {{n}} × War and Peace 📚",
   "families": {
-    "volume": { "name": "Volume", "title": "Characters: {{value}}" },
-    "streak": { "name": "Streaks", "title": "Days in a row: {{value}}" },
-    "activeDays": { "name": "Activity", "title": "Active days: {{value}}" },
-    "focus": { "name": "Focus", "title": "Hours of focus: {{value}}" },
-    "sessions": { "name": "Sessions", "title": "Focus sessions: {{value}}" },
-    "chapters": { "name": "Chapters", "title": "Chapters done: {{value}}" },
-    "projects": { "name": "Books", "title": "Books finished: {{value}}" },
+    "volume": { "name": "Volume", "title": "Characters: {{value}}", "criterion": "Write {{value}} characters in total" },
+    "streak": { "name": "Streaks", "title": "Days in a row: {{value}}", "criterion": "{{value}} days in a row" },
+    "activeDays": { "name": "Activity", "title": "Active days: {{value}}", "criterion": "{{value}} active days in total" },
+    "focus": { "name": "Focus", "title": "Hours of focus: {{value}}", "criterion": "{{value}} hours of focus in total" },
+    "sessions": { "name": "Sessions", "title": "Focus sessions: {{value}}", "criterion": "{{value}} focus sessions in total" },
+    "chapters": { "name": "Chapters", "title": "Chapters done: {{value}}", "criterion": "{{value}} chapters done" },
+    "projects": { "name": "Books", "title": "Books finished: {{value}}", "criterion": "{{value}} books finished" },
     "feat": { "name": "Feats", "title": "" },
-    "creative": { "name": "Moments", "title": "" }
+    "creative": { "name": "Moments", "title": "" },
+    "ultra": { "name": "Legendary", "title": "" }
   },
   "markButton": "Mark",
+  "unmarkButton": "Unmark",
   "markedToast": "✨ Marked: {{title}}",
+  "unmarkedToast": "Removed: {{title}}",
+  "undo": "Undo",
   "sessionMomentsTitle": "What happened this session? (optional)",
   "creative": {
     "creative_tears": { "title": "Writer's Tears", "desc": "Wrote a scene that brought tears to your own eyes" },
@@ -31,5 +39,22 @@
     "feat_weekend_warrior": { "title": "Weekend Warrior", "desc": "5,000 characters in a single day" },
     "feat_flow": { "title": "Flow", "desc": "An hour of writing without a break" },
     "feat_deep_dive": { "title": "Deep Dive", "desc": "3 hours in one session" }
+  },
+  "ultra": {
+    "ultra_novel": { "title": "A Whole Book", "desc": "Half a million characters — that's a full novel. You wrote a book." },
+    "ultra_lifetime": { "title": "A Piece of Your Life", "desc": "100 hours alone with your story — weeks of pure creation you gave to your book." },
+    "ultra_year": { "title": "A Year on the Road", "desc": "A year ago — your first characters. Look back at how far you've come. You didn't quit." },
+    "ultra_from_nothing": { "title": "From Nothing", "desc": "250 times you sat down to write. Each one felt small. Together they built all of this." },
+    "ultra_cut": { "title": "The Courage to Cut", "desc": "Tens of thousands of characters deleted — not a loss, but the courage to cut for something better." },
+    "ultra_capstone": { "title": "Look Back", "desc": "{{symbols}} characters · {{days}} days · {{hours}} hours · {{books}} books. This isn't trying anymore. This is you." }
+  },
+  "flavor": {
+    "projects_1": "Your first book is done. Most people only dream — you did it.",
+    "projects_2": "Three books already. Not a fluke — it's how you live now.",
+    "projects_3": "Number five. Seems like nothing can stop you now.",
+    "projects_4": "Ten books. That makes you a writer. No quotes needed.",
+    "volume_7": "A million characters. Do you grasp how much that is? A whole shelf.",
+    "volume_8": "2.5 million. This isn't a hobby — it's a library with your name on it.",
+    "volume_9": "Five million characters. Sit down. Let it sink in: you're a story machine."
   }
 }

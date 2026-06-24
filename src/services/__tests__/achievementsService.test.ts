@@ -6,6 +6,7 @@ import {
   buildViews,
   syncAchievements,
   markManual,
+  unmarkManual,
 } from '../achievementsService'
 
 vi.mock('../databaseService')
@@ -90,6 +91,33 @@ describe('achievementsService — чистые расчёты', () => {
     expect(buildViews(big, new Set()).find((v) => v.id === 'creative_tears')!.unlocked).toBe(false)
     expect(buildViews(big, new Set(['creative_tears'])).find((v) => v.id === 'creative_tears')!.unlocked).toBe(true)
   })
+
+  it('считает возраст пути и суммарно удалённое', () => {
+    const stats = computeStats(
+      [
+        { date: '2026-01-01', symbols: 100, deleted: 30 },
+        { date: '2026-01-05', symbols: 50, deleted: 20 },
+      ],
+      [], [], [],
+      new Date('2026-01-10T12:00:00'),
+    )
+    expect(stats.totalDeleted).toBe(50)
+    expect(stats.accountAgeDays).toBe(10) // 2026-01-01 → 2026-01-10 включительно
+  })
+
+  it('легендарные (ультра) открываются по метрикам и помечены hidden/teaser', () => {
+    const base = computeStats([], [], [], [])
+    const met = evaluateAuto({ ...base, totalSymbols: 600_000 })
+    expect(met).toContain('ultra_novel') // порог 500k
+    expect(met).not.toContain('ultra_capstone') // порог 1M ещё не достигнут
+    const views = buildViews({ ...base, totalSymbols: 600_000 }, new Set())
+    const novel = views.find((v) => v.id === 'ultra_novel')!
+    expect(novel.unlocked).toBe(true)
+    expect(novel.hidden).toBe(true)
+    const capstone = views.find((v) => v.id === 'ultra_capstone')!
+    expect(capstone.unlocked).toBe(false)
+    expect(capstone.teaser).toBe(true)
+  })
 })
 
 describe('achievementsService — персистентность', () => {
@@ -135,5 +163,30 @@ describe('achievementsService — персистентность', () => {
     const res = await syncAchievements({ ...base, longestStreak: 0 }) // стрик прервался
     expect(res.unlockedIds.has('streak_1')).toBe(true) // порог 3 — остаётся открытым
     expect(res.unlockedIds.has('streak_2')).toBe(true) // порог 7 — остаётся
+  })
+
+  it('состояние раздельно по областям (книгам)', async () => {
+    const base = computeStats([], [], [], [])
+    await markManual('creative_twist', 'book-A')
+    const a = await syncAchievements(base, 'book-A')
+    const b = await syncAchievements(base, 'book-B')
+    expect(a.unlockedIds.has('creative_twist')).toBe(true)
+    expect(b.unlockedIds.has('creative_twist')).toBe(false)
+  })
+
+  it('unmarkManual снимает ручную отметку', async () => {
+    const base = computeStats([], [], [], [])
+    await markManual('creative_twist')
+    await unmarkManual('creative_twist')
+    const res = await syncAchievements(base)
+    expect(res.unlockedIds.has('creative_twist')).toBe(false)
+  })
+
+  it('unmarkManual не трогает авто-достижения', async () => {
+    const base = computeStats([], [], [], [])
+    await syncAchievements({ ...base, totalSymbols: 5000 }) // baseline: volume_1/2 авто
+    await unmarkManual('volume_1') // не ручное → без эффекта
+    const res = await syncAchievements({ ...base, totalSymbols: 5000 })
+    expect(res.unlockedIds.has('volume_1')).toBe(true)
   })
 })

@@ -18,6 +18,26 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: '1.0.3',
+    date: '2026-06-24',
+    ru: [
+      '🏆 Достижения переработаны: теперь считаются и по каждой книге, и в общем обзоре «Все проекты» — на новой книге можно пройти путь заново, а общая летопись сохраняется.',
+      'ℹ️ У каждой медали появилось пояснение по наведению: что нужно для открытия и сколько осталось.',
+      '✨ Эмоциональные моменты можно снять или переотметить (с кнопкой «Отменить» сразу после отметки).',
+      '🌌 Добавлены скрытые «легендарные» достижения — раскрываются по мере пути и показывают масштаб проделанного.',
+      '🎉 Тёплые поздравления на крупных вехах и забавное сравнение объёма с «Войной и миром».',
+      '📋 В Настройках список «Что нового» при разворачивании прокручивается, а не растягивает страницу.',
+    ],
+    en: [
+      '🏆 Achievements reworked: now tracked per book and in an “All projects” overview — start fresh on a new book while your lifetime record stays intact.',
+      'ℹ️ Every medal now has a hover tooltip: what it takes to unlock and how much is left.',
+      '✨ Emotional moments can now be unmarked or re-marked (with an “Undo” right after marking).',
+      '🌌 Added hidden “legendary” achievements — they reveal themselves along the way and show the scale of your work.',
+      '🎉 Warm congratulations at major milestones, plus a fun comparison of your volume to War and Peace.',
+      '📋 In Settings, the “What’s new” list now scrolls when expanded instead of stretching the page.',
+    ],
+  },
+  {
     version: '1.0.2',
     date: '2026-06-18',
     ru: [

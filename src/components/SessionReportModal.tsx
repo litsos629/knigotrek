@@ -6,7 +6,7 @@ import { downloadDataUrl } from '../services/reports/reportUtils'
 import type { ThemeId } from '../services/reports/reportThemes'
 import { getSessionTags, formatTags } from '../config/appConfig'
 import { MANUAL_ACHIEVEMENTS } from '../data/achievements'
-import { markManual } from '../services/achievementsService'
+import { markManual, ALL_SCOPE } from '../services/achievementsService'
 
 interface SessionReportModalProps {
   sessionData: SessionData
@@ -45,7 +45,7 @@ function SessionReportModal({ sessionData, isOpen, onClose }: SessionReportModal
   }
 
   const handleMarkMoment = async (id: string) => {
-    await markManual(id)
+    await markManual(id, sessionData.projectId || ALL_SCOPE)
     setMarked((prev) => new Set(prev).add(id))
     showSuccess(t('achievements:markedToast', { title: t(`achievements:creative.${id}.title`) }))
   }

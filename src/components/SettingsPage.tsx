@@ -251,7 +251,7 @@ function SettingsPage({ theme, toggleTheme }: SettingsPageProps) {
           <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
             {t('settings:changelog.title')}
           </h2>
-          <div className="space-y-4">
+          <div className={`space-y-4 ${showAllChangelog ? 'max-h-96 overflow-y-auto pr-2' : ''}`}>
             {(showAllChangelog ? CHANGELOG : CHANGELOG.slice(0, CHANGELOG_PREVIEW_COUNT)).map((entry) => (
               <div
                 key={entry.version}

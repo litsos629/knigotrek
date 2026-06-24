@@ -22,9 +22,13 @@ export interface AchievementStats {
   maxSessionSymbols: number
   maxDaySymbols: number
   maxSessionMinutes: number
+  /** Дней с первой записи (для «ультра» долгого пути). */
+  accountAgeDays: number
+  /** Суммарно удалённых знаков (режим редактуры) — для «ультра» смелости резать. */
+  totalDeleted: number
 }
 
-interface EntryLike { date: string; symbols: number }
+interface EntryLike { date: string; symbols: number; deleted?: number }
 interface SessionLike { duration: number; symbols: number }
 interface ProjectLike { status?: string }
 interface ChapterLike { status?: string }
@@ -54,8 +58,10 @@ export function computeStats(
   sessions: SessionLike[],
   projects: ProjectLike[],
   chapters: ChapterLike[],
+  now: Date = new Date(),
 ): AchievementStats {
   const totalSymbols = entries.reduce((s, e) => s + (e.symbols || 0), 0)
+  const totalDeleted = entries.reduce((s, e) => s + (e.deleted || 0), 0)
 
   // Сумма символов по дню (на дату может быть несколько записей — по проекту)
   const byDay = new Map<string, number>()
@@ -65,6 +71,18 @@ export function computeStats(
   }
   const activeDates = [...byDay.entries()].filter(([, v]) => v > 0).map(([d]) => d)
   const maxDaySymbols = byDay.size ? Math.max(0, ...byDay.values()) : 0
+
+  // Возраст «писательского пути» — дни от первой записи до сегодня (1 = первый день).
+  let accountAgeDays = 0
+  const datedEntries = entries.map((e) => e.date).filter(Boolean)
+  if (datedEntries.length) {
+    const firstStr = datedEntries.reduce((min, d) => (d < min ? d : min), datedEntries[0])
+    const pad = (n: number) => String(n).padStart(2, '0')
+    const todayStr = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`
+    const firstMs = parseLocalDate(firstStr).getTime()
+    const todayMs = parseLocalDate(todayStr).getTime()
+    accountAgeDays = Math.max(0, Math.floor((todayMs - firstMs) / DAY_MS)) + 1
+  }
 
   return {
     totalSymbols,
@@ -77,6 +95,8 @@ export function computeStats(
     maxSessionSymbols: sessions.length ? Math.max(0, ...sessions.map((s) => s.symbols || 0)) : 0,
     maxDaySymbols,
     maxSessionMinutes: sessions.length ? Math.max(0, ...sessions.map((s) => s.duration || 0)) : 0,
+    accountAgeDays,
+    totalDeleted,
   }
 }
 
@@ -116,6 +136,9 @@ export function buildViews(stats: AchievementStats, unlockedIds: Set<string>): A
 
 const STATE_KEY = 'achievements_state'
 
+/** Область достижений: 'all' — обзор «Все проекты» (пожизненно), либо projectId книги. */
+export const ALL_SCOPE = 'all'
+
 interface UnlockedRecord {
   at: string
   manual?: boolean
@@ -126,23 +149,42 @@ export interface AchievementState {
   unlocked: Record<string, UnlockedRecord>
 }
 
-export async function loadAchievementState(): Promise<AchievementState> {
+/** Все области в одном settings-ключе (без миграций схемы). */
+interface AchievementStore {
+  scopes: Record<string, AchievementState>
+}
+
+const emptyScope = (): AchievementState => ({ initialized: false, unlocked: {} })
+
+async function loadStore(): Promise<AchievementStore> {
   try {
     const raw = await getSetting(STATE_KEY)
     if (raw) {
       const parsed = JSON.parse(raw)
       if (parsed && typeof parsed === 'object') {
-        return { initialized: !!parsed.initialized, unlocked: parsed.unlocked || {} }
+        if (parsed.scopes && typeof parsed.scopes === 'object') {
+          return { scopes: parsed.scopes as Record<string, AchievementState> }
+        }
+        // Старый формат (одна глобальная область) → переносим в scope 'all'.
+        if (parsed.unlocked || parsed.initialized) {
+          return { scopes: { [ALL_SCOPE]: { initialized: !!parsed.initialized, unlocked: parsed.unlocked || {} } } }
+        }
       }
     }
   } catch {
     // повреждённое значение — начинаем с чистого состояния
   }
-  return { initialized: false, unlocked: {} }
+  return { scopes: {} }
 }
 
-async function saveAchievementState(state: AchievementState): Promise<void> {
-  await setSetting(STATE_KEY, JSON.stringify(state))
+async function saveStore(store: AchievementStore): Promise<void> {
+  await setSetting(STATE_KEY, JSON.stringify(store))
+}
+
+/** Состояние одной области (по умолчанию — обзор 'all'). */
+export async function loadAchievementState(scope: string = ALL_SCOPE): Promise<AchievementState> {
+  const store = await loadStore()
+  return store.scopes[scope] ?? emptyScope()
 }
 
 export interface SyncResult {
@@ -152,12 +194,14 @@ export interface SyncResult {
 }
 
 /**
- * Сверяет текущую статистику с сохранённым состоянием, фиксирует новые разблокировки
- * и возвращает то, что открылось «только что». Первая инициализация сидит baseline
- * без тостов — иначе пользователю прилетел бы спам за всё уже достигнутое.
+ * Сверяет статистику области с сохранённым состоянием, фиксирует новые разблокировки
+ * и возвращает то, что открылось «только что». Первая инициализация области сидит
+ * baseline без тостов — иначе прилетел бы спам за всё уже достигнутое (в т.ч. при
+ * первом открытии книги с историей).
  */
-export async function syncAchievements(stats: AchievementStats): Promise<SyncResult> {
-  const state = await loadAchievementState()
+export async function syncAchievements(stats: AchievementStats, scope: string = ALL_SCOPE): Promise<SyncResult> {
+  const store = await loadStore()
+  const state = store.scopes[scope] ?? emptyScope()
   const metIds = evaluateAuto(stats)
   const now = new Date().toISOString()
 
@@ -176,29 +220,62 @@ export async function syncAchievements(stats: AchievementStats): Promise<SyncRes
 
   if (firstRun || newlyUnlocked.length > 0) {
     state.initialized = true
-    await saveAchievementState(state)
+    store.scopes[scope] = state
+    await saveStore(store)
   }
 
   return { unlockedIds: new Set(Object.keys(state.unlocked)), newlyUnlocked }
 }
 
-/** Ручная отметка достижения (для саморазметки эмоций — Фаза 2). */
-export async function markManual(id: string): Promise<void> {
-  const state = await loadAchievementState()
+/** Ручная отметка достижения (саморазметка эмоций) в указанной области. */
+export async function markManual(id: string, scope: string = ALL_SCOPE): Promise<void> {
+  const store = await loadStore()
+  const state = store.scopes[scope] ?? emptyScope()
   if (!state.unlocked[id]) {
     state.unlocked[id] = { at: new Date().toISOString(), manual: true }
     state.initialized = true
-    await saveAchievementState(state)
+    store.scopes[scope] = state
+    await saveStore(store)
   }
 }
 
-/** Загружает сырые данные из БД и считает статистику. */
-export async function loadStats(): Promise<AchievementStats> {
+/** Снятие ручной отметки (если тапнул не туда). Авто-достижения не трогает. */
+export async function unmarkManual(id: string, scope: string = ALL_SCOPE): Promise<void> {
+  const store = await loadStore()
+  const state = store.scopes[scope]
+  if (state && state.unlocked[id]?.manual) {
+    delete state.unlocked[id]
+    await saveStore(store)
+  }
+}
+
+/** Объединение ручных отметок по всем книгам — для обзора «Все» (эмоция «была хоть раз»). */
+export async function loadManualUnlockedAnyScope(): Promise<Set<string>> {
+  const store = await loadStore()
+  const ids = new Set<string>()
+  for (const state of Object.values(store.scopes)) {
+    for (const [id, rec] of Object.entries(state.unlocked)) {
+      if (rec.manual) ids.add(id)
+    }
+  }
+  return ids
+}
+
+/** Загружает сырые данные из БД и считает статистику. projectId → только эта книга. */
+export async function loadStats(projectId?: string): Promise<AchievementStats> {
   const [entries, sessions, projects, chapters] = await Promise.all([
     getEntries(),
     getSessions(),
     getProjects(),
     getChapters(),
   ])
-  return computeStats(entries, sessions, projects, chapters)
+  if (!projectId) {
+    return computeStats(entries, sessions, projects, chapters)
+  }
+  return computeStats(
+    entries.filter((e) => e.projectId === projectId),
+    sessions.filter((s) => s.projectId === projectId),
+    projects.filter((p) => p.id === projectId),
+    chapters.filter((c) => c.projectId === projectId),
+  )
 }

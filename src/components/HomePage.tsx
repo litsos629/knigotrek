@@ -341,9 +341,9 @@ function HomePage({ selectedProjectId, setSelectedProjectId }: HomePageProps) {
       </div>
 
       {/* Ачивки */}
-      {/* Достижения считаются по всем данным (глобально); refreshKey обновляет
+      {/* Достижения выбранной книги (или обзор «Все проекты»); refreshKey обновляет
           карточку после новой записи символов */}
-      <AchievementsCard refreshKey={entries.reduce((s, e) => s + e.symbols, 0)} />
+      <AchievementsCard selectedProjectId={selectedProjectId} refreshKey={entries.reduce((s, e) => s + e.symbols, 0)} />
 
       {/* Паспорт писателя */}
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-6">

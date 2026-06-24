@@ -14,6 +14,7 @@ const zeroStats = {
   totalSymbols: 0, longestStreak: 0, activeDays: 0, focusMinutes: 0,
   totalSessions: 0, chaptersDone: 0, completedProjects: 0,
   maxSessionSymbols: 0, maxDaySymbols: 0, maxSessionMinutes: 0,
+  accountAgeDays: 0, totalDeleted: 0,
 }
 
 describe('AchievementsCard', () => {

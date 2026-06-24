@@ -1,7 +1,7 @@
 {
   "name": "knigotrek",
   "private": true,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Книготрек — бесплатный десктоп-трекер прогресса для писателей: статистика, цели, PDF-отчёты и режим фокуса. Electron + React + SQLite.",
   "license": "MIT",
   "author": {

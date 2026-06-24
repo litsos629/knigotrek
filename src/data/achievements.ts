@@ -20,6 +20,8 @@ export type AchievementMetric =
   | 'maxSessionSymbols'
   | 'maxDaySymbols'
   | 'maxSessionMinutes'
+  | 'accountAgeDays'
+  | 'totalDeleted'
 
 export type AchievementFamily =
   | 'volume'
@@ -31,6 +33,7 @@ export type AchievementFamily =
   | 'projects'
   | 'feat'
   | 'creative'
+  | 'ultra'
 
 /** auto — открывается по метрике; manual — отмечается пользователем (эмоции). */
 export type AchievementType = 'auto' | 'manual'
@@ -47,8 +50,10 @@ export interface AchievementDef {
   /** Число, показываемое в заголовке (для focus — часы, хотя метрика в минутах). */
   titleValue?: number
   emoji: string
-  /** Скрытые не показываются до разблокировки (зарезервировано, Фаза 3). */
+  /** Скрытые не показываются до разблокировки (раскрываются по факту — приятный сюрприз). */
   hidden?: boolean
+  /** Для скрытых: показывать заблюренным «слотом-мечтой», а не прятать полностью. */
+  teaser?: boolean
 }
 
 const TIER_EMOJIS = ['🥉', '🥈', '🥇', '💎', '👑']
@@ -138,11 +143,20 @@ export const ACHIEVEMENTS: AchievementDef[] = [
   { id: 'creative_the_end', family: 'creative', type: 'manual', emoji: '🏁' },
   { id: 'creative_permission', family: 'creative', type: 'manual', emoji: '🗑️' },
   { id: 'creative_converge', family: 'creative', type: 'manual', emoji: '🧩' },
+
+  // Скрытые «легендарные» — переводят накопленное в человеческий масштаб (раскрываются по факту).
+  // Капстоун (teaser) виден заблюренным «слотом-мечтой»; остальные полностью скрыты до открытия.
+  { id: 'ultra_novel', family: 'ultra', metric: 'totalSymbols', threshold: 500_000, emoji: '📖', hidden: true },
+  { id: 'ultra_lifetime', family: 'ultra', metric: 'focusMinutes', threshold: 6_000, emoji: '⏳', hidden: true },
+  { id: 'ultra_year', family: 'ultra', metric: 'accountAgeDays', threshold: 365, emoji: '🗓️', hidden: true },
+  { id: 'ultra_from_nothing', family: 'ultra', metric: 'totalSessions', threshold: 250, emoji: '🧱', hidden: true },
+  { id: 'ultra_cut', family: 'ultra', metric: 'totalDeleted', threshold: 50_000, emoji: '✂️', hidden: true },
+  { id: 'ultra_capstone', family: 'ultra', metric: 'totalSymbols', threshold: 1_000_000, emoji: '🌌', hidden: true, teaser: true },
 ]
 
 /** Порядок семейств для отображения в карточке. */
 export const FAMILY_ORDER: AchievementFamily[] = [
-  'volume', 'streak', 'activeDays', 'focus', 'sessions', 'chapters', 'projects', 'feat', 'creative',
+  'volume', 'streak', 'activeDays', 'focus', 'sessions', 'chapters', 'projects', 'feat', 'creative', 'ultra',
 ]
 
 /** id достижений, отмечаемых вручную (эмоциональные моменты). */
